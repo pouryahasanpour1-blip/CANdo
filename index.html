@@ -330,6 +330,29 @@ html.light.neonl #cbg .bi{box-shadow:inset 0 0 0 1px rgba(224,57,154,.35)}
 html.light.neonl #gbg.acc .crow.a0 input{box-shadow:inset 0 0 0 1px rgba(224,57,154,.35)}
 html.light.neonl .rem{border:1px solid rgba(224,57,154,.35)}
 html.light.neonl #txs[data-t=tr]{--acbg:rgba(224,57,154,.14);--acg:rgba(224,57,154,.3)}
+@media (min-width:900px){
+  body{width:calc(100% - 48px);max-width:1180px;padding:24px 0 110px;display:grid;grid-template-columns:repeat(12,minmax(0,1fr));gap:14px;align-content:start}
+  .topbar,#instrem,#bkrem,.mnav,#apps,#q,#acs,#tabs,#list{grid-column:1/-1}
+  .topbar{margin-bottom:0}
+  #instrem:empty,#bkrem:empty{display:none}
+  .hero{grid-column:span 5;margin:0}
+  body:has(#accbal:empty) .hero{grid-column:1/-1;max-width:760px;width:100%;justify-self:center}
+  #accbal{grid-column:span 7}
+  #accbal:empty,#charts:empty,#budget:empty{display:none}
+  #charts{grid-column:span 7}
+  #budget{grid-column:span 5}
+  body:has(#charts:empty) #budget{grid-column:1/-1;max-width:760px;width:100%;justify-self:center}
+  #list{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:0 12px}
+  #list .day,#list .empty{grid-column:1/-1}
+  .sheet-bg{align-items:center;padding:24px}
+  .sheet{max-width:640px;border-radius:24px}
+  #txs{max-width:620px}
+  .fab{right:max(28px,calc((100vw - 1180px)/2 + 28px));width:64px;height:64px}
+  .apps{gap:12px}
+  .ap i{width:68px;height:68px}
+  .ap span{font-size:13px}
+  .srch{margin-top:0}
+}
 </style>
 </head>
 <body>
