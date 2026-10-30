@@ -380,10 +380,44 @@ html.light.neonl #txs[data-t=tr]{--acbg:rgba(224,57,154,.14);--acg:rgba(224,57,1
 .sr-sw{cursor:default}.sr-sw .tg{flex:none}
 #sbg .appver{margin-top:22px}
 #sbg .tg.on{background:var(--t)}
+/* v1.6.0: logo, icons, theme picker */
+.topbar{min-height:48px}
+.brand{display:flex;align-items:center;gap:9px}
+.lg-mk{width:34px;height:34px;flex:none;filter:drop-shadow(0 4px 10px rgba(255,196,0,.28))}
+.lg-tx{font-size:22px;font-weight:800;letter-spacing:-.3px;line-height:1;font-family:Vazirmatn,system-ui,sans-serif}
+.lg-tx b{font-weight:800;color:var(--txt)}
+.lg-tx i{font-style:normal;font-weight:800;background:linear-gradient(135deg,var(--t),color-mix(in srgb,var(--t) 55%,var(--y)));-webkit-background-clip:text;background-clip:text;color:transparent}
+.setbtn{width:44px;height:44px;border-radius:14px;border:0;background:var(--card);color:var(--txt);display:grid;place-items:center;padding:0;cursor:pointer}
+.setbtn svg{width:22px;height:22px}.setbtn:active{transform:scale(.94)}
+.mnav button{display:grid;place-items:center}.mnav button svg{width:20px;height:20px}
+.fab svg{width:28px;height:28px}
+.ic svg{width:22px;height:22px}
+.del svg{width:18px;height:18px}
+.ab{display:grid;place-items:center}.ab svg{width:22px;height:22px}
+.rci{display:inline-grid;vertical-align:middle;margin-inline-end:4px}.rci svg{width:16px;height:16px}
+.ap i{background:color-mix(in srgb,var(--c) 16%,var(--card))!important;color:var(--c);border:1px solid color-mix(in srgb,var(--c) 28%,transparent)}
+.ap i svg{width:26px;height:26px}
+.ap span{font-size:12px}.ap small{font-size:11px}
+.thgrid{display:grid;grid-template-columns:1fr 1fr;gap:10px}
+.thc{background:var(--card);border:2px solid transparent;border-radius:20px;padding:8px;display:flex;flex-direction:column;gap:8px;cursor:pointer;transition:border-color .15s,transform .15s;text-align:right}
+.thc:active{transform:scale(.97)}
+.thc.on{border-color:var(--y)}
+.thp{display:flex;flex-direction:column;gap:5px;background:var(--b);border-radius:14px;padding:9px;height:92px;border:1px solid rgba(127,127,127,.18)}
+.thp i{display:block}
+.thh{height:30px;border-radius:9px;background:var(--y)}
+.thr{display:flex;align-items:center;gap:6px;height:18px;border-radius:6px;background:var(--k);padding:0 6px}
+.thr u{display:block;height:5px;border-radius:3px;background:var(--x);opacity:.55;flex:1;text-decoration:none}
+.thr u:last-child{flex:none;width:18px;background:var(--t);opacity:1}
+.thn{display:flex;align-items:center;justify-content:space-between;font-weight:600;font-size:14px;padding:0 4px 2px}
+.thn em{width:22px;height:22px;border-radius:50%;background:var(--y);color:var(--yd);display:grid;place-items:center;opacity:0;transform:scale(.6);transition:.15s}
+.thn em svg{width:14px;height:14px}
+.thc.on .thn em{opacity:1;transform:none}
+#vlist .vr{min-height:56px}
+#vbg .sheet{padding-top:10px}
 </style>
 </head>
 <body>
-<div class="topbar"><b dir="ltr" style="letter-spacing:.5px"><span style="color:var(--y)">CAN</span><span style="color:var(--t)">do</span></b><div style="display:flex;gap:8px"><button class="lnk" id="theme" aria-label="تم شب و روز">🌙</button><button class="lnk" id="eye" aria-label="مخفی کردن مبالغ">👁</button><button class="lnk" id="setopen"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12.22 2h-.44a2 2 0 0 0-2 2v.18a2 2 0 0 1-1 1.73l-.43.25a2 2 0 0 1-2 0l-.15-.08a2 2 0 0 0-2.73.73l-.22.38a2 2 0 0 0 .73 2.73l.15.1a2 2 0 0 1 1 1.72v.51a2 2 0 0 1-1 1.74l-.15.09a2 2 0 0 0-.73 2.73l.22.38a2 2 0 0 0 2.73.73l.15-.08a2 2 0 0 1 2 0l.43.25a2 2 0 0 1 1 1.73V20a2 2 0 0 0 2 2h.44a2 2 0 0 0 2-2v-.18a2 2 0 0 1 1-1.73l.43-.25a2 2 0 0 1 2 0l.15.08a2 2 0 0 0 2.73-.73l.22-.39a2 2 0 0 0-.73-2.73l-.15-.08a2 2 0 0 1-1-1.74v-.5a2 2 0 0 1 1-1.74l.15-.09a2 2 0 0 0 .73-2.73l-.22-.38a2 2 0 0 0-2.73-.73l-.15.08a2 2 0 0 1-2 0l-.43-.25a2 2 0 0 1-1-1.73V4a2 2 0 0 0-2-2z"/><circle cx="12" cy="12" r="3"/></svg>تنظیمات</button></div></div>
+<div class="topbar"><div class="brand" dir="ltr"><svg class="lg-mk" viewBox="0 0 64 64" aria-hidden="true"><defs><linearGradient id="lgg" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="#ffe066"/><stop offset="1" stop-color="#ffc400"/></linearGradient></defs><rect width="64" height="64" rx="16" fill="url(#lgg)"/><path d="M45.4 20A18 18 0 1 0 45.4 44" fill="none" stroke="#1a1500" stroke-width="6.5" stroke-linecap="round"/><path d="M25 32.5l5 5 9.5-10" fill="none" stroke="#0abab5" stroke-width="5.2" stroke-linecap="round" stroke-linejoin="round"/></svg><span class="lg-tx"><b>CAN</b><i>do</i></span></div><button class="setbtn" id="setopen" aria-label="تنظیمات"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12.22 2h-.44a2 2 0 0 0-2 2v.18a2 2 0 0 1-1 1.73l-.43.25a2 2 0 0 1-2 0l-.15-.08a2 2 0 0 0-2.73.73l-.22.38a2 2 0 0 0 .73 2.73l.15.1a2 2 0 0 1 1 1.72v.51a2 2 0 0 1-1 1.74l-.15.09a2 2 0 0 0-.73 2.73l.22.38a2 2 0 0 0 2.73.73l.15-.08a2 2 0 0 1 2 0l.43.25a2 2 0 0 1 1 1.73V20a2 2 0 0 0 2 2h.44a2 2 0 0 0 2-2v-.18a2 2 0 0 1 1-1.73l.43-.25a2 2 0 0 1 2 0l.15.08a2 2 0 0 0 2.73-.73l.22-.39a2 2 0 0 0-.73-2.73l-.15-.08a2 2 0 0 1-1-1.74v-.5a2 2 0 0 1 1-1.74l.15-.09a2 2 0 0 0 .73-2.73l-.22-.38a2 2 0 0 0-2.73-.73l-.15.08a2 2 0 0 1-2 0l-.43-.25a2 2 0 0 1-1-1.73V4a2 2 0 0 0-2-2z"/><circle cx="12" cy="12" r="3"/></svg></button><button id="theme" hidden aria-hidden="true" tabindex="-1"></button><button id="eye" hidden aria-hidden="true" tabindex="-1"></button></div>
 <section id="instrem"></section>
 <section id="bkrem"></section>
 <section class="hero">
@@ -395,7 +429,7 @@ html.light.neonl #txs[data-t=tr]{--acbg:rgba(224,57,154,.14);--acg:rgba(224,57,1
   </div>
 </section>
 <section id="accbal"></section>
-<div class="mnav"><button id="pm" aria-label="ماه قبل">›</button><b id="ml"></b><button id="nm" aria-label="ماه بعد">‹</button></div>
+<div class="mnav"><button id="pm" aria-label="ماه قبل"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="m9 18 6-6-6-6"/></svg></button><b id="ml"></b><button id="nm" aria-label="ماه بعد"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="m15 18-6-6 6-6"/></svg></button></div>
 <section id="charts"></section>
 <section id="budget"></section>
 <div class="apps" id="apps"></div>
@@ -408,7 +442,7 @@ html.light.neonl #txs[data-t=tr]{--acbg:rgba(224,57,154,.14);--acg:rgba(224,57,1
   <button data-f="tr">انتقال</button>
 </div>
 <main id="list"></main>
-<button class="fab" id="open" aria-label="ثبت تراکنش">+</button>
+<button class="fab" id="open" aria-label="ثبت تراکنش"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 5v14M5 12h14"/></svg></button>
 
 <div class="sheet-bg" id="bg">
   <div class="sheet" id="txs" data-t="out" role="dialog" aria-label="ثبت تراکنش">
@@ -425,7 +459,7 @@ html.light.neonl #txs[data-t=tr]{--acbg:rgba(224,57,154,.14);--acg:rgba(224,57,1
     <div class="row"><input id="note" aria-label="توضیح (اختیاری)" placeholder="توضیح (اختیاری)" autocomplete="off"></div>
     <div class="sugg" id="sugg"></div>
     <div class="row" id="accrow" style="align-items:center"><select id="acsel" aria-label="از حساب"></select><span id="arrow" style="display:none;color:var(--y);font-weight:800">←</span><select id="acto" aria-label="به حساب" style="display:none"></select></div>
-    <div class="dline"><div id="dch"></div><label class="rc" id="rcw"><input type="checkbox" id="recck"> 🔁 تکرار ماهانه</label></div>
+    <div class="dline"><div id="dch"></div><label class="rc" id="rcw"><input type="checkbox" id="recck"> <span class="rci"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="m17 2 4 4-4 4"/><path d="M3 11v-1a4 4 0 0 1 4-4h14"/><path d="m7 22-4-4 4-4"/><path d="M21 13v1a4 4 0 0 1-4 4H3"/></svg></span>تکرار ماهانه</label></div>
     <div class="row" id="drow" style="display:none"><select id="dd" aria-label="روز"></select><select id="dm" aria-label="ماه"></select><select id="dy" aria-label="سال"></select></div>
     <div class="err" id="err"></div>
     <button class="save" id="save">ثبت هزینه</button>
@@ -473,13 +507,14 @@ html.light.neonl #txs[data-t=tr]{--acbg:rgba(224,57,154,.14);--acg:rgba(224,57,1
   <h3 class="set-lbl">داده و امنیت</h3>
   <div class="set-grp">
     <button class="sr" id="bkopen"><span class="sr-ic" style="--c:#3ba7ff"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><path d="m7 10 5 5 5-5"/><path d="M12 15V3"/></svg></span><span class="sr-tx"><b>بکاپ و بازیابی</b><small id="bksub">فایل، متن یا خروجی اکسل</small></span><span class="sr-chev"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="m15 18-6-6 6-6"/></svg></span></button>
+    <div class="sr sr-sw"><span class="sr-ic" style="--c:#8b7bff"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M9.88 9.88a3 3 0 1 0 4.24 4.24"/><path d="M10.73 5.08A10.4 10.4 0 0 1 12 5c6.5 0 10 7 10 7a13.2 13.2 0 0 1-1.67 2.68"/><path d="M6.61 6.61A13.5 13.5 0 0 0 2 12s3.5 7 10 7a9.7 9.7 0 0 0 5.39-1.61"/><path d="M2 2l20 20"/></svg></span><span class="sr-tx"><b id="privl">مخفی کردن مبالغ</b><small>برای وقتی که کسی کنارت هست</small></span><button class="tg" id="privt" data-keep role="switch" aria-labelledby="privl"><i></i></button></div>
     <div class="sr sr-sw"><span class="sr-ic" style="--c:#ff4d4d"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="3" y="11" width="18" height="11" rx="2"/><path d="M7 11V7a5 5 0 0 1 10 0v4"/></svg></span><span class="sr-tx"><b id="lockl">قفل اپ با رمز</b><small>اگر رمز را فراموش کنی، فقط با پاک کردن اطلاعات مرورگر باز می‌شود؛ پس بکاپ بگیر.</small></span><button class="tg" id="lockt" data-keep role="switch" aria-labelledby="lockl"><i></i></button></div>
   </div>
-  <div class="appver"><b dir="ltr"><span style="color:var(--y)">CAN</span><span style="color:var(--t)">do</span></b> · نسخه‌ی <span dir="ltr">1.5.0</span></div>
+  <div class="appver"><b dir="ltr"><span style="color:var(--y)">CAN</span><span style="color:var(--t)">do</span></b> · نسخه‌ی <span dir="ltr">1.6.0</span></div>
 </div></div>
 <div class="sheet-bg" id="abg"><div class="sheet" style="max-height:88vh;overflow-y:auto"><div class="ch" id="at" style="color:var(--y);font-size:16px"></div><section id="insts"></section><section id="debts"></section><section id="cmp"></section><section id="goals"></section><section id="yr"></section><button class="save sec" id="aclose" style="margin-top:6px">بستن</button></div></div>
 <div class="sheet-bg" id="gbg"><div class="sheet" style="max-height:88vh;overflow-y:auto"><div class="ch" id="gt"></div><div id="gb"></div><button class="save" id="gsave" style="margin-top:8px">ذخیره</button></div></div>
-<div class="sheet-bg" id="vbg"><div class="sheet" role="dialog" aria-label="تغییر ظاهر" style="max-height:88vh;overflow-y:auto"><div class="ch">تغییر ظاهر</div><div class="bt" style="display:block;margin:0 2px 10px;line-height:1.8">هر بخشی که خاموش شود از صفحه‌ی اصلی نمایش داده نمی‌شود. اطلاعاتت پاک نمی‌شود.</div><div class="bt" style="display:block;margin:0 2px 6px">تم برنامه</div><div class="tabs" id="thm" style="margin-bottom:14px"><button data-th="dark">🌙 تیره</button><button data-th="light">☀️ روشن</button><button data-th="neon">🎨 رنگی</button><button data-th="neonl">🌸 رنگی روشن</button></div><div id="vlist"></div><button class="save sec" id="vclose" style="margin-top:6px">بستن</button></div></div>
+<div class="sheet-bg" id="vbg"><div class="sheet" role="dialog" aria-label="تغییر ظاهر" style="max-height:88vh;overflow-y:auto"><div class="set-grab" aria-hidden="true"></div><div class="set-head"><h2>ظاهر برنامه</h2></div><h3 class="set-lbl">تم</h3><div class="thgrid" id="thm"><button data-th="dark" class="thc" aria-label="تم تیره"><span class="thp" style="--b:#000;--k:#1b1b1b;--y:#ffd21f;--t:#0abab5;--x:#f2f2f2"><i class="thh"></i><i class="thr"><u></u><u></u></i><i class="thr"><u></u><u></u></i></span><span class="thn">تیره<em><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20 6 9 17l-5-5"/></svg></em></span></button><button data-th="light" class="thc" aria-label="تم روشن"><span class="thp" style="--b:#f2f2f2;--k:#fff;--y:#ffd21f;--t:#0abab5;--x:#111"><i class="thh"></i><i class="thr"><u></u><u></u></i><i class="thr"><u></u><u></u></i></span><span class="thn">روشن<em><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20 6 9 17l-5-5"/></svg></em></span></button><button data-th="neon" class="thc" aria-label="تم رنگی"><span class="thp" style="--b:#07050f;--k:#14102a;--y:#ff5fb7;--t:#2fe6d3;--x:#f4f0ff"><i class="thh"></i><i class="thr"><u></u><u></u></i><i class="thr"><u></u><u></u></i></span><span class="thn">رنگی<em><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20 6 9 17l-5-5"/></svg></em></span></button><button data-th="neonl" class="thc" aria-label="تم رنگی روشن"><span class="thp" style="--b:#f6f2ff;--k:#fff;--y:#e0399a;--t:#0fb9a8;--x:#1c1236"><i class="thh"></i><i class="thr"><u></u><u></u></i><i class="thr"><u></u><u></u></i></span><span class="thn">رنگی روشن<em><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20 6 9 17l-5-5"/></svg></em></span></button></div><h3 class="set-lbl">بخش‌های صفحه‌ی اصلی</h3><div class="bt" style="display:block;margin:-2px 6px 8px;line-height:1.8">هر بخشی که خاموش شود از صفحه‌ی اصلی نمایش داده نمی‌شود. اطلاعاتت پاک نمی‌شود.</div><div id="vlist" class="set-grp"></div><button class="save sec" id="vclose" style="margin-top:6px">بستن</button></div></div>
 <div id="lock"><div id="lt"></div><div id="dots"></div><div id="pad"></div><button class="lnk" id="lcancel">لغو</button></div>
 
 <script>
@@ -583,9 +618,9 @@ function render(){
   shown.forEach(x=>{
     if(x.d!==last){h+=`<div class="day">${dayLabel(x.d)}</div>`;last=x.d}
     if(x.t==='tr'){const sg=acf==null?'':((x.ac??0)==acf?'−':'+');
-      h+=`<div class="item xf" data-id="${x.id}"><div class="ic">⇄</div><div class="mid"><b>انتقال</b><small>${esc(accTitle(x.ac??0))} ← ${esc(accTitle(x.to))}${x.n?' · '+esc(x.n):''}</small></div><div class="amt">${sg}${fa(x.a)}</div><button class="del" data-id="${x.id}" aria-label="حذف">✕</button></div>`;return}
+      h+=`<div class="item xf" data-id="${x.id}"><div class="ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M8 3 4 7l4 4"/><path d="M4 7h16"/><path d="m16 21 4-4-4-4"/><path d="M20 17H4"/></svg></div><div class="mid"><b>انتقال</b><small>${esc(accTitle(x.ac??0))} ← ${esc(accTitle(x.to))}${x.n?' · '+esc(x.n):''}</small></div><div class="amt">${sg}${fa(x.a)}</div><button class="del" data-id="${x.id}" aria-label="حذف"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M18 6 6 18M6 6l12 12"/></svg></button></div>`;return}
     const c=getCat(x.t,x.c);
-    h+=`<div class="item ${x.t}" data-id="${x.id}"><div class="ic">${c.e}</div><div class="mid"><b>${esc(c.n)}</b>${(accName(x)||x.n)?`<small>${esc([accName(x),x.n].filter(Boolean).join(' · '))}</small>`:''}</div><div class="amt">${x.t==='in'?'+':'−'}${fa(x.a)}</div><button class="del" data-id="${x.id}" aria-label="حذف">✕</button></div>`;
+    h+=`<div class="item ${x.t}" data-id="${x.id}"><div class="ic">${c.e}</div><div class="mid"><b>${esc(c.n)}</b>${(accName(x)||x.n)?`<small>${esc([accName(x),x.n].filter(Boolean).join(' · '))}</small>`:''}</div><div class="amt">${x.t==='in'?'+':'−'}${fa(x.a)}</div><button class="del" data-id="${x.id}" aria-label="حذف"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M18 6 6 18M6 6l12 12"/></svg></button></div>`;
   });
   $('list').innerHTML=h;
 }
@@ -652,7 +687,7 @@ $('list').onclick=e=>{const d=e.target.closest('.del');
 const EM=['🍽','☕','🛒','🛍','🚕','⛽','🏠','💡','📱','💊','🏥','🎬','🎮','✈️','📚','🎓','👕','🐾','🎁','💼','💰','📈','🏦','🧾','📦','🏷','❤️','🔧'];
 let draft,pick=null,dbud={},dgoal={};
 function cform(){
-  $('cform').innerHTML=['out','in'].map(t=>`<div class="ch ${t}">${t==='out'?'دسته‌های هزینه (سقف ماهانه اختیاری)':'دسته‌های درآمد'}</div>`+draft[t].map((c,i)=>`<div class="crow ${t}"><button class="eb" data-a="pick" data-t="${t}" data-i="${i}" aria-label="تغییر آیکن">${c.e}</button><input data-t="${t}" data-i="${i}" maxlength="14" value="${esc(c.n)}">${t==='out'?`<input class="bi" data-b="${c.id}" inputmode="numeric" placeholder="سقف ماهانه" value="${dbud[c.id]?fa(dbud[c.id]):''}">`:`<input class="bi gi" data-g="${c.id}" inputmode="numeric" placeholder="هدف ماهانه" value="${dgoal[c.id]?fa(dgoal[c.id]):''}">`}<button class="del" data-a="del" data-t="${t}" data-i="${i}" aria-label="حذف">✕</button></div>`+(pick&&pick[0]===t&&pick[1]===i?`<div class="pk">${EM.map(e=>`<button data-a="em" data-e="${e}">${e}</button>`).join('')}<input id="pkin" placeholder="یا ایموجی دلخواهت را بنویس" maxlength="8"></div>`:'')).join('')+`<button class="lnk" data-a="add" data-t="${t}" style="margin:2px 0 14px">+ دسته جدید</button>`).join('');
+  $('cform').innerHTML=['out','in'].map(t=>`<div class="ch ${t}">${t==='out'?'دسته‌های هزینه (سقف ماهانه اختیاری)':'دسته‌های درآمد'}</div>`+draft[t].map((c,i)=>`<div class="crow ${t}"><button class="eb" data-a="pick" data-t="${t}" data-i="${i}" aria-label="تغییر آیکن">${c.e}</button><input data-t="${t}" data-i="${i}" maxlength="14" value="${esc(c.n)}">${t==='out'?`<input class="bi" data-b="${c.id}" inputmode="numeric" placeholder="سقف ماهانه" value="${dbud[c.id]?fa(dbud[c.id]):''}">`:`<input class="bi gi" data-g="${c.id}" inputmode="numeric" placeholder="هدف ماهانه" value="${dgoal[c.id]?fa(dgoal[c.id]):''}">`}<button class="del" data-a="del" data-t="${t}" data-i="${i}" aria-label="حذف"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M18 6 6 18M6 6l12 12"/></svg></button></div>`+(pick&&pick[0]===t&&pick[1]===i?`<div class="pk">${EM.map(e=>`<button data-a="em" data-e="${e}">${e}</button>`).join('')}<input id="pkin" placeholder="یا ایموجی دلخواهت را بنویس" maxlength="8"></div>`:'')).join('')+`<button class="lnk" data-a="add" data-t="${t}" style="margin:2px 0 14px">+ دسته جدید</button>`).join('');
 }
 $('cform').onclick=e=>{const b=e.target.closest('button');if(!b)return;const a=b.dataset.a,t=b.dataset.t,i=+b.dataset.i;
   if(a==='pick')pick=pick&&pick[0]===t&&pick[1]===i?null:[t,i];
@@ -767,12 +802,12 @@ $('gb').onchange=e=>{if(G.input)G.input(e.target)};
 $('setopen').onclick=()=>{try{$('vsub').textContent={dark:'تیره',light:'روشن',neon:'رنگی',neonl:'رنگی روشن'}[curTheme()]||'تیره';const d=bkAgo();$('bksub').textContent=d==null?'هنوز بکاپ نگرفته‌ای':d<1?'آخرین بکاپ: امروز':'آخرین بکاپ: '+fa(d)+' روز پیش'}catch(e){}$('sbg').classList.add('open')};
 $('sbg').addEventListener('click',e=>{if(e.target===$('sbg')||(e.target.closest('button')&&!e.target.closest('[data-keep]')))$('sbg').classList.remove('open')});
 $('accopen').onclick=()=>{$('gbg').classList.add('acc');const d=JSON.parse(JSON.stringify(accs));
-  const r=()=>{$('gb').innerHTML=d.map((a,i)=>`<div class="crow a${i%2}"><span class="ab">${a.n.trim()==='نقد'?'💵':'💳'}</span><input data-i="${i}" maxlength="14" value="${esc(a.n)}"><button class="del" data-a="del" data-i="${i}" aria-label="حذف">✕</button></div>`).join('')+'<button class="lnk" data-a="add">+ حساب جدید</button>'};
+  const r=()=>{$('gb').innerHTML=d.map((a,i)=>`<div class="crow a${i%2}"><span class="ab">${a.n.trim()==='نقد'?'<svg viewBox=\"0 0 24 24\" fill=\"none\" stroke=\"currentColor\" stroke-width=\"2\" stroke-linecap=\"round\" stroke-linejoin=\"round\" aria-hidden=\"true\"><rect x=\"2\" y=\"6\" width=\"20\" height=\"12\" rx=\"2\"/><circle cx=\"12\" cy=\"12\" r=\"2.5\"/><path d=\"M6 12h.01M18 12h.01\"/></svg>':'<svg viewBox=\"0 0 24 24\" fill=\"none\" stroke=\"currentColor\" stroke-width=\"2\" stroke-linecap=\"round\" stroke-linejoin=\"round\" aria-hidden=\"true\"><rect x=\"2\" y=\"5\" width=\"20\" height=\"14\" rx=\"2\"/><path d=\"M2 10h20\"/></svg>'}</span><input data-i="${i}" maxlength="14" value="${esc(a.n)}"><button class="del" data-a="del" data-i="${i}" aria-label="حذف"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M18 6 6 18M6 6l12 12"/></svg></button></div>`).join('')+'<button class="lnk" data-a="add">+ حساب جدید</button>'};
   gsheet('حساب‌ها','',()=>{d.forEach(a=>a.n=a.n.trim()||'بدون نام');accs=d;sv(SK.acc,accs);$('gbg').classList.remove('open');render()});r();
   G.click=b=>{if(b.dataset.a==='add'){d.push({id:Date.now(),n:'حساب جدید'});r()}else if(b.dataset.a==='del'&&d.length>1){d.splice(+b.dataset.i,1);r()}};
   G.input=x=>{if(x.dataset.i!==undefined)d[+x.dataset.i].n=x.value}};
 $('recopen').onclick=()=>{$('gbg').classList.remove('acc');
-  const r=()=>{$('gb').innerHTML=recs.length?recs.map((x,i)=>{const k=getCat(x.t,x.c);return `<div class="crow"><b style="flex:1;font-weight:600">${k.e} ${esc(k.n)}<small style="display:block;color:var(--mute);font-weight:400">${fa(x.a)} تومان، روز ${fa(x.day)} هر ماه${x.n?' · '+esc(x.n):''}</small></b><button class="del" data-i="${i}" aria-label="حذف">✕</button></div>`}).join(''):'<div class="empty">تراکنش تکراری نداری.<br>موقع ثبت، «تکرار ماهانه» را بزن.</div>'};
+  const r=()=>{$('gb').innerHTML=recs.length?recs.map((x,i)=>{const k=getCat(x.t,x.c);return `<div class="crow"><b style="flex:1;font-weight:600">${k.e} ${esc(k.n)}<small style="display:block;color:var(--mute);font-weight:400">${fa(x.a)} تومان، روز ${fa(x.day)} هر ماه${x.n?' · '+esc(x.n):''}</small></b><button class="del" data-i="${i}" aria-label="حذف"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M18 6 6 18M6 6l12 12"/></svg></button></div>`}).join(''):'<div class="empty">تراکنش تکراری نداری.<br>موقع ثبت، «تکرار ماهانه» را بزن.</div>'};
   gsheet('تراکنش‌های تکراری','',null);r();
   G.click=b=>{recs.splice(+b.dataset.i,1);sv(SK.rec,recs);r()}};
 
@@ -958,14 +993,16 @@ $('goals').onclick=e=>{const d=e.target.closest('[data-gdep]');if(d){depositGoal
 let priv=ld(SK.pv,false);
 const SV=d=>'<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">'+d+'</svg>';
 const IC={dark:SV('<path d="M12 3a6 6 0 0 0 9 9 9 9 0 1 1-9-9z"/>'),light:SV('<circle cx="12" cy="12" r="4"/><path d="M12 2v2M12 20v2M4.93 4.93l1.41 1.41M17.66 17.66l1.41 1.41M2 12h2M20 12h2M6.34 17.66l-1.41 1.41M19.07 4.93l-1.41 1.41"/>'),neon:SV('<circle cx="13.5" cy="6.5" r="1.5"/><circle cx="17.5" cy="10.5" r="1.5"/><circle cx="8.5" cy="7.5" r="1.5"/><circle cx="6.5" cy="12.5" r="1.5"/><path d="M12 2a10 10 0 0 0 0 20c.93 0 1.5-.75 1.5-1.67 0-.43-.17-.83-.44-1.13-.29-.29-.44-.65-.44-1.13A1.64 1.64 0 0 1 14.27 16.4H16a6 6 0 0 0 6-6C22 5.82 17.5 2 12 2z"/>'),neonl:SV('<path d="M12 3l1.9 5.8L20 10l-5 3.6L16.5 20 12 16.3 7.5 20 9 13.6 4 10l6.1-1.2z"/>'),eye:SV('<path d="M2 12s3.5-7 10-7 10 7 10 7-3.5 7-10 7S2 12 2 12z"/><circle cx="12" cy="12" r="3"/>'),eyeOff:SV('<path d="M9.88 9.88a3 3 0 1 0 4.24 4.24"/><path d="M10.73 5.08A10.4 10.4 0 0 1 12 5c6.5 0 10 7 10 7a13.2 13.2 0 0 1-1.67 2.68"/><path d="M6.61 6.61A13.5 13.5 0 0 0 2 12s3.5 7 10 7a9.7 9.7 0 0 0 5.39-1.61"/><path d="M2 2l20 20"/>')};
-const privApply=()=>{document.body.classList.toggle('priv',!!priv);$('eye').innerHTML=priv?IC.eyeOff:IC.eye;$('eye').setAttribute('aria-pressed',String(!!priv))};
+const privApply=()=>{document.body.classList.toggle('priv',!!priv);$('eye').innerHTML=priv?IC.eyeOff:IC.eye;$('eye').setAttribute('aria-pressed',String(!!priv));const pt=$('privt');if(pt){pt.classList.toggle('on',!!priv);pt.setAttribute('aria-checked',String(!!priv))}};
+$('privt').onclick=()=>$('eye').click();
 $('eye').onclick=()=>{priv=!priv;sv(SK.pv,priv);privApply()};privApply();
 // ===== home app icons =====
+const APIC={"insts": ["#ffb020", "<svg viewBox=\"0 0 24 24\" fill=\"none\" stroke=\"currentColor\" stroke-width=\"2\" stroke-linecap=\"round\" stroke-linejoin=\"round\" aria-hidden=\"true\"><rect x=\"3\" y=\"4\" width=\"18\" height=\"18\" rx=\"2\"/><path d=\"M16 2v4M8 2v4M3 10h18\"/><path d=\"m9 16 2 2 4-4\"/></svg>"], "debts": ["#0abab5", "<svg viewBox=\"0 0 24 24\" fill=\"none\" stroke=\"currentColor\" stroke-width=\"2\" stroke-linecap=\"round\" stroke-linejoin=\"round\" aria-hidden=\"true\"><path d=\"M16 3h5v5\"/><path d=\"M8 21H3v-5\"/><path d=\"M21 3 14 10\"/><path d=\"m3 21 7-7\"/></svg>"], "cmp": ["#8b7bff", "<svg viewBox=\"0 0 24 24\" fill=\"none\" stroke=\"currentColor\" stroke-width=\"2\" stroke-linecap=\"round\" stroke-linejoin=\"round\" aria-hidden=\"true\"><path d=\"M3 3v18h18\"/><path d=\"M8 17V11\"/><path d=\"M13 17V7\"/><path d=\"M18 17v-4\"/></svg>"], "goals": ["#ff5fb7", "<svg viewBox=\"0 0 24 24\" fill=\"none\" stroke=\"currentColor\" stroke-width=\"2\" stroke-linecap=\"round\" stroke-linejoin=\"round\" aria-hidden=\"true\"><circle cx=\"12\" cy=\"12\" r=\"10\"/><circle cx=\"12\" cy=\"12\" r=\"6\"/><circle cx=\"12\" cy=\"12\" r=\"2\"/></svg>"], "yr": ["#3ba7ff", "<svg viewBox=\"0 0 24 24\" fill=\"none\" stroke=\"currentColor\" stroke-width=\"2\" stroke-linecap=\"round\" stroke-linejoin=\"round\" aria-hidden=\"true\"><rect x=\"3\" y=\"4\" width=\"18\" height=\"18\" rx=\"2\"/><path d=\"M16 2v4M8 2v4M3 10h18\"/><path d=\"M8 14h.01M12 14h.01M16 14h.01M8 18h.01M12 18h.01M16 18h.01\"/></svg>"]};
 const APPS=[['insts','🗓','اقساط'],['debts','🤝','طلب و بدهی'],['cmp','📊','مقایسه با ماه قبل'],['goals','🎯','هدف‌های پس‌انداز'],['yr','📅','خلاصه سال']];
 function appsRender(){
   const op=debts.filter(d=>!d.done).length;
   const sm={insts:['بدهی‌های قسطی'],debts:[op?fa(op)+' مورد باز':'موردی نیست'],cmp:['هزینه‌ها'],yr:['سالانه'],goals:[sgoals.length?fa(sgoals.length)+' هدف':'هدفی نیست']};
-  $('apps').innerHTML=APPS.map(([k,e,n])=>`<button class="ap" data-ap="${k}"><i>${e}</i><span>${n}</span><small class="${sm[k][1]?'w':''}">${sm[k][0]}</small></button>`).join('')}
+  $('apps').innerHTML=APPS.map(([k,e,n])=>`<button class="ap" data-ap="${k}"><i style="--c:${(APIC[k]||[])[0]||'var(--y)'}">${(APIC[k]||[])[1]||e}</i><span>${n}</span><small class="${sm[k][1]?'w':''}">${sm[k][0]}</small></button>`).join('')}
 function yrRender(){const y=mon[0],a=Array.from({length:12},()=>({i:0,o:0})),bc={};
   items.forEach(x=>{if(x.t==='tr')return;const[yy,m]=jp(iso2d(x.d));if(yy!==y)return;a[m-1][x.t==='in'?'i':'o']+=x.a;if(x.t==='out')bc[x.c]=(bc[x.c]||0)+x.a});
   const I=a.reduce((s,m)=>s+m.i,0),O=a.reduce((s,m)=>s+m.o,0),mx=Math.max(1,...a.map(m=>Math.max(m.i,m.o))),act=a.map((m,i)=>[i,m]).filter(o=>o[1].o>0);
@@ -996,7 +1033,7 @@ const vOn=k=>k==='theme'?document.documentElement.classList.contains('light'):vi
 function visApply(){let c='';VIS.forEach(([k])=>{if(k==='theme'||vis2[k]!==false)return;c+=k.startsWith('ap:')?`.ap[data-ap="${k.slice(3)}"]{display:none!important}`:`#${k}{display:none!important}`});
   if(VIS.filter(v=>v[0].startsWith('ap:')).every(v=>vis2[v[0]]===false))c+='#apps{display:none!important}';
   let st=$('vstyle');if(!st){st=document.createElement('style');st.id='vstyle';document.head.appendChild(st)}st.textContent=c;
-  $('vlist').innerHTML=VIS.map(([k,n])=>`<div class="mb sw"><span>${n}</span><button class="tg${vOn(k)?' on':''}" data-v="${k}" data-keep aria-label="${n}"><i></i></button></div>`).join('')}
+  $('vlist').innerHTML=VIS.map(([k,n])=>`<div class="sr sr-sw vr"><span class="sr-tx"><b>${n}</b></span><button class="tg${vOn(k)?' on':''}" data-v="${k}" data-keep aria-label="${n}"><i></i></button></div>`).join('')}
 $('vlist').onclick=e=>{const b=e.target.closest('[data-v]');if(!b)return;const k=b.dataset.v;if(k==='theme')$('theme').click();else{vis2[k]=vis2[k]===false;sv('dakhl-vis-v2',vis2)}visApply()};
 $('vopen').onclick=()=>{visApply();$('vbg').classList.add('open')};
 $('vclose').onclick=()=>$('vbg').classList.remove('open');
