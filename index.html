@@ -121,9 +121,6 @@ button,input,select{font-family:inherit;font-size:16px;color:inherit}
 #pad button{height:72px;border-radius:50%;border:0;background:var(--card);font-size:24px;font-weight:600}
 #lt{font-size:16px;font-weight:600;min-height:24px;text-align:center}
 #sbg .ch{color:var(--y);font-size:16px}
-#sbg .mb{border-inline-start:4px solid var(--y)}
-#sbg .mb:nth-of-type(even){border-inline-start-color:var(--t)}
-#sbg .sw{border-inline-start:4px solid var(--t)}
 #sbg .tg.on{background:var(--t)}
 #sbg .mb:active{background:#2a2a2a}
 .crow input.bi{flex:none;width:92px;text-align:center;font-size:13px;padding:10px 6px}
@@ -362,6 +359,27 @@ html.light.neonl #txs[data-t=tr]{--acbg:rgba(224,57,154,.14);--acg:rgba(224,57,1
 .v{font-size:11px}
 .col small,.cr small{font-size:12px}
 @media (prefers-reduced-motion:reduce){*,*::before,*::after{animation-duration:.01ms!important;animation-iteration-count:1!important;transition-duration:.01ms!important;scroll-behavior:auto!important}}
+/* Settings redesign (v1.5.0) */
+#sbg .set{max-height:90vh;overflow-y:auto;padding-top:10px}
+.set-grab{width:40px;height:5px;border-radius:3px;background:var(--line);margin:0 auto 10px}
+.set-head{display:flex;align-items:center;justify-content:space-between;margin:0 2px 6px}
+.set-head h2{font-size:22px;font-weight:800}
+.set-x{width:44px;height:44px;border-radius:50%;border:0;background:var(--card);color:var(--mute);display:grid;place-items:center;padding:0}
+.set-x svg{width:20px;height:20px}
+.set-lbl{font-size:13px;font-weight:600;color:var(--mute);margin:18px 6px 8px}
+.set-grp{background:var(--card);border-radius:20px;overflow:hidden}
+.sr{display:flex;align-items:center;gap:12px;width:100%;min-height:64px;padding:12px 14px;background:none;border:0;text-align:right;position:relative;cursor:pointer;transition:background .15s}
+.sr+.sr::before{content:"";position:absolute;top:0;left:14px;right:62px;height:1px;background:var(--line)}
+.sr:active{background:rgba(127,127,127,.12)}
+.sr-ic{width:38px;height:38px;border-radius:11px;flex:none;display:grid;place-items:center;background:color-mix(in srgb,var(--c) 18%,transparent);color:var(--c)}
+.sr-ic svg{width:20px;height:20px}
+.sr-tx{flex:1;min-width:0;display:flex;flex-direction:column;gap:2px}
+.sr-tx b{font-weight:600;font-size:16px}
+.sr-tx small{font-size:13px;color:var(--mute);line-height:1.6}
+.sr-chev{color:var(--mute);opacity:.7;display:grid}.sr-chev svg{width:18px;height:18px}
+.sr-sw{cursor:default}.sr-sw .tg{flex:none}
+#sbg .appver{margin-top:22px}
+#sbg .tg.on{background:var(--t)}
 </style>
 </head>
 <body>
@@ -439,16 +457,25 @@ html.light.neonl #txs[data-t=tr]{--acbg:rgba(224,57,154,.14);--acg:rgba(224,57,1
   </div>
 </div>
 
-<div class="sheet-bg" id="sbg"><div class="sheet" role="dialog" aria-label="تنظیمات">
-  <div class="ch">تنظیمات</div>
-  <button class="mb" id="cedit">✎ دسته‌ها: نام، آیکن و بودجه</button>
-  <button class="mb" id="accopen">حساب‌ها (نقد، کارت، ...)</button>
-  <button class="mb" id="recopen">تراکنش‌های تکراری</button>
-  <button class="mb" id="vopen">تغییر ظاهر</button>
-  <button class="mb" id="bkopen">بکاپ و بازیابی</button>
-  <div class="mb sw"><span>قفل اپ با رمز</span><button class="tg" id="lockt" data-keep aria-label="روشن/خاموش قفل"><i></i></button></div>
-  <div class="bt" style="display:block;line-height:1.8">اگر رمز را فراموش کنی، فقط با پاک کردن اطلاعات مرورگر باز می‌شود؛ پس بکاپ بگیر.</div>
-  <div class="appver">نسخه‌ی برنامه: <span dir="ltr">1.3.0</span></div>
+<div class="sheet-bg" id="sbg"><div class="sheet set" role="dialog" aria-labelledby="sttl">
+  <div class="set-grab" aria-hidden="true"></div>
+  <div class="set-head"><h2 id="sttl">تنظیمات</h2><button class="set-x" aria-label="بستن"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M18 6 6 18M6 6l12 12"/></svg></button></div>
+  <h3 class="set-lbl">مدیریت مالی</h3>
+  <div class="set-grp">
+    <button class="sr" id="cedit"><span class="sr-ic" style="--c:#ffd21f"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 2H2v10l9.29 9.29a1 1 0 0 0 1.41 0l8.59-8.59a1 1 0 0 0 0-1.41z"/><circle cx="7" cy="7" r="1.5"/></svg></span><span class="sr-tx"><b>دسته‌ها</b><small>نام، آیکن و بودجه‌ی ماهانه</small></span><span class="sr-chev"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="m15 18-6-6 6-6"/></svg></span></button>
+    <button class="sr" id="accopen"><span class="sr-ic" style="--c:#0abab5"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="2" y="5" width="20" height="14" rx="2"/><path d="M2 10h20"/></svg></span><span class="sr-tx"><b>حساب‌ها</b><small>نقد، کارت و ...</small></span><span class="sr-chev"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="m15 18-6-6 6-6"/></svg></span></button>
+    <button class="sr" id="recopen"><span class="sr-ic" style="--c:#7c6cff"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="m17 2 4 4-4 4"/><path d="M3 11v-1a4 4 0 0 1 4-4h14"/><path d="m7 22-4-4 4-4"/><path d="M21 13v1a4 4 0 0 1-4 4H3"/></svg></span><span class="sr-tx"><b>تراکنش‌های تکراری</b><small>ثبت خودکار هر ماه</small></span><span class="sr-chev"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="m15 18-6-6 6-6"/></svg></span></button>
+  </div>
+  <h3 class="set-lbl">ظاهر</h3>
+  <div class="set-grp">
+    <button class="sr" id="vopen"><span class="sr-ic" style="--c:#ff5fb7"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="13.5" cy="6.5" r="1.5"/><circle cx="17.5" cy="10.5" r="1.5"/><circle cx="8.5" cy="7.5" r="1.5"/><circle cx="6.5" cy="12.5" r="1.5"/><path d="M12 2a10 10 0 0 0 0 20c.93 0 1.5-.75 1.5-1.67 0-.43-.17-.83-.44-1.13-.29-.29-.44-.65-.44-1.13A1.64 1.64 0 0 1 14.27 16.4H16a6 6 0 0 0 6-6C22 5.82 17.5 2 12 2z"/></svg></span><span class="sr-tx"><b>تم و بخش‌های صفحه</b><small id="vsub">تیره</small></span><span class="sr-chev"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="m15 18-6-6 6-6"/></svg></span></button>
+  </div>
+  <h3 class="set-lbl">داده و امنیت</h3>
+  <div class="set-grp">
+    <button class="sr" id="bkopen"><span class="sr-ic" style="--c:#3ba7ff"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><path d="m7 10 5 5 5-5"/><path d="M12 15V3"/></svg></span><span class="sr-tx"><b>بکاپ و بازیابی</b><small id="bksub">فایل، متن یا خروجی اکسل</small></span><span class="sr-chev"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="m15 18-6-6 6-6"/></svg></span></button>
+    <div class="sr sr-sw"><span class="sr-ic" style="--c:#ff4d4d"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="3" y="11" width="18" height="11" rx="2"/><path d="M7 11V7a5 5 0 0 1 10 0v4"/></svg></span><span class="sr-tx"><b id="lockl">قفل اپ با رمز</b><small>اگر رمز را فراموش کنی، فقط با پاک کردن اطلاعات مرورگر باز می‌شود؛ پس بکاپ بگیر.</small></span><button class="tg" id="lockt" data-keep role="switch" aria-labelledby="lockl"><i></i></button></div>
+  </div>
+  <div class="appver"><b dir="ltr"><span style="color:var(--y)">CAN</span><span style="color:var(--t)">do</span></b> · نسخه‌ی <span dir="ltr">1.5.0</span></div>
 </div></div>
 <div class="sheet-bg" id="abg"><div class="sheet" style="max-height:88vh;overflow-y:auto"><div class="ch" id="at" style="color:var(--y);font-size:16px"></div><section id="insts"></section><section id="debts"></section><section id="cmp"></section><section id="goals"></section><section id="yr"></section><button class="save sec" id="aclose" style="margin-top:6px">بستن</button></div></div>
 <div class="sheet-bg" id="gbg"><div class="sheet" style="max-height:88vh;overflow-y:auto"><div class="ch" id="gt"></div><div id="gb"></div><button class="save" id="gsave" style="margin-top:8px">ذخیره</button></div></div>
@@ -737,7 +764,7 @@ $('gbg').onclick=e=>{if(e.target===$('gbg'))$('gbg').classList.remove('open')};
 $('gb').onclick=e=>{const b=e.target.closest('button');if(b&&G.click)G.click(b)};
 $('gb').oninput=e=>{if(G.input)G.input(e.target)};
 $('gb').onchange=e=>{if(G.input)G.input(e.target)};
-$('setopen').onclick=()=>$('sbg').classList.add('open');
+$('setopen').onclick=()=>{try{$('vsub').textContent={dark:'تیره',light:'روشن',neon:'رنگی',neonl:'رنگی روشن'}[curTheme()]||'تیره';const d=bkAgo();$('bksub').textContent=d==null?'هنوز بکاپ نگرفته‌ای':d<1?'آخرین بکاپ: امروز':'آخرین بکاپ: '+fa(d)+' روز پیش'}catch(e){}$('sbg').classList.add('open')};
 $('sbg').addEventListener('click',e=>{if(e.target===$('sbg')||(e.target.closest('button')&&!e.target.closest('[data-keep]')))$('sbg').classList.remove('open')});
 $('accopen').onclick=()=>{$('gbg').classList.add('acc');const d=JSON.parse(JSON.stringify(accs));
   const r=()=>{$('gb').innerHTML=d.map((a,i)=>`<div class="crow a${i%2}"><span class="ab">${a.n.trim()==='نقد'?'💵':'💳'}</span><input data-i="${i}" maxlength="14" value="${esc(a.n)}"><button class="del" data-a="del" data-i="${i}" aria-label="حذف">✕</button></div>`).join('')+'<button class="lnk" data-a="add">+ حساب جدید</button>'};
@@ -980,7 +1007,7 @@ let lockH=ld(SK.lock,null),pm='',pb='',pt='';
 const sha=async v=>{try{const b=await crypto.subtle.digest('SHA-256',new TextEncoder().encode('dk'+v));return[...new Uint8Array(b)].map(x=>x.toString(16).padStart(2,'0')).join('')}catch(e){return 'p'+btoa(v)}};
 const LT={unlock:'رمز را وارد کن',set1:'رمز 4 رقمی جدید را وارد کن',set2:'رمز را دوباره وارد کن',off:'برای خاموش کردن، رمز فعلی را وارد کن'};
 const dots=()=>{$('dots').innerHTML=[0,1,2,3].map(i=>`<i class="${i<pb.length?'f':''}"></i>`).join('')};
-const lockUI=()=>$('lockt').classList.toggle('on',!!lockH);
+const lockUI=()=>{$('lockt').classList.toggle('on',!!lockH);$('lockt').setAttribute('aria-checked',String(!!lockH))};
 function showLock(m,msg){pm=m;pb='';$('lock').style.display='flex';$('lcancel').style.display=m==='unlock'?'none':'';$('lt').textContent=msg||LT[m];dots()}
 const hideLock=()=>{$('lock').style.display='none';pb='';pt=''};
 $('pad').innerHTML=['1','2','3','4','5','6','7','8','9','','0','⌫'].map(k=>k?`<button data-k="${k}">${k}</button>`:'<span></span>').join('');
