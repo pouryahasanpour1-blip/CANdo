@@ -353,10 +353,19 @@ html.light.neonl #txs[data-t=tr]{--acbg:rgba(224,57,154,.14);--acg:rgba(224,57,1
   .ap span{font-size:13px}
   .srch{margin-top:0}
 }
+/* UI/UX polish (v1.4.1) */
+.lnk,.del,#pm,#nm{min-height:44px}
+.del{min-width:44px;display:inline-grid;place-items:center}
+.topbar .lnk{display:inline-flex;align-items:center;justify-content:center;gap:6px;min-width:44px}
+.topbar .lnk svg{width:20px;height:20px;flex:none}
+.cats button{min-height:44px}
+.v{font-size:11px}
+.col small,.cr small{font-size:12px}
+@media (prefers-reduced-motion:reduce){*,*::before,*::after{animation-duration:.01ms!important;animation-iteration-count:1!important;transition-duration:.01ms!important;scroll-behavior:auto!important}}
 </style>
 </head>
 <body>
-<div class="topbar"><b dir="ltr" style="letter-spacing:.5px"><span style="color:var(--y)">CAN</span><span style="color:var(--t)">do</span></b><div style="display:flex;gap:8px"><button class="lnk" id="theme" aria-label="تم شب و روز">🌙</button><button class="lnk" id="eye" aria-label="مخفی کردن مبالغ">👁</button><button class="lnk" id="setopen">⚙ تنظیمات</button></div></div>
+<div class="topbar"><b dir="ltr" style="letter-spacing:.5px"><span style="color:var(--y)">CAN</span><span style="color:var(--t)">do</span></b><div style="display:flex;gap:8px"><button class="lnk" id="theme" aria-label="تم شب و روز">🌙</button><button class="lnk" id="eye" aria-label="مخفی کردن مبالغ">👁</button><button class="lnk" id="setopen"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12.22 2h-.44a2 2 0 0 0-2 2v.18a2 2 0 0 1-1 1.73l-.43.25a2 2 0 0 1-2 0l-.15-.08a2 2 0 0 0-2.73.73l-.22.38a2 2 0 0 0 .73 2.73l.15.1a2 2 0 0 1 1 1.72v.51a2 2 0 0 1-1 1.74l-.15.09a2 2 0 0 0-.73 2.73l.22.38a2 2 0 0 0 2.73.73l.15-.08a2 2 0 0 1 2 0l.43.25a2 2 0 0 1 1 1.73V20a2 2 0 0 0 2 2h.44a2 2 0 0 0 2-2v-.18a2 2 0 0 1 1-1.73l.43-.25a2 2 0 0 1 2 0l.15.08a2 2 0 0 0 2.73-.73l.22-.39a2 2 0 0 0-.73-2.73l-.15-.08a2 2 0 0 1-1-1.74v-.5a2 2 0 0 1 1-1.74l.15-.09a2 2 0 0 0 .73-2.73l-.22-.38a2 2 0 0 0-2.73-.73l-.15.08a2 2 0 0 1-2 0l-.43-.25a2 2 0 0 1-1-1.73V4a2 2 0 0 0-2-2z"/><circle cx="12" cy="12" r="3"/></svg>تنظیمات</button></div></div>
 <section id="instrem"></section>
 <section id="bkrem"></section>
 <section class="hero">
@@ -372,7 +381,7 @@ html.light.neonl #txs[data-t=tr]{--acbg:rgba(224,57,154,.14);--acg:rgba(224,57,1
 <section id="charts"></section>
 <section id="budget"></section>
 <div class="apps" id="apps"></div>
-<input class="srch" id="q" placeholder="جستجو (دسته، توضیح، مبلغ)">
+<input class="srch" id="q" type="search" aria-label="جستجو در تراکنش‌ها" placeholder="جستجو (دسته، توضیح، مبلغ)">
 <div class="tabs acs" id="acs"></div>
 <div class="tabs" id="tabs">
   <button data-f="all" class="on">همه</button>
@@ -391,11 +400,11 @@ html.light.neonl #txs[data-t=tr]{--acbg:rgba(224,57,154,.14);--acg:rgba(224,57,1
       <button data-t="in">درآمد</button>
       <button data-t="tr" id="segtr">انتقال</button>
     </div>
-    <div class="amtbox"><input class="big" id="amount" inputmode="numeric" placeholder="0" autocomplete="off"></div>
+    <div class="amtbox"><input class="big" id="amount" aria-label="مبلغ (تومان)" inputmode="numeric" placeholder="0" autocomplete="off"></div>
     <div class="amthint" id="amthint"></div>
     <div class="qa" id="qa"><button data-v="10000">+10 هزار</button><button data-v="50000">+50 هزار</button><button data-v="100000">+100 هزار</button><button data-v="1000000">+1 میلیون</button></div>
     <div class="cats" id="cats"></div>
-    <div class="row"><input id="note" placeholder="توضیح (اختیاری)" autocomplete="off"></div>
+    <div class="row"><input id="note" aria-label="توضیح (اختیاری)" placeholder="توضیح (اختیاری)" autocomplete="off"></div>
     <div class="sugg" id="sugg"></div>
     <div class="row" id="accrow" style="align-items:center"><select id="acsel" aria-label="از حساب"></select><span id="arrow" style="display:none;color:var(--y);font-weight:800">←</span><select id="acto" aria-label="به حساب" style="display:none"></select></div>
     <div class="dline"><div id="dch"></div><label class="rc" id="rcw"><input type="checkbox" id="recck"> 🔁 تکرار ماهانه</label></div>
@@ -920,7 +929,9 @@ $('goals').onclick=e=>{const d=e.target.closest('[data-gdep]');if(d){depositGoal
 
 // ===== privacy (hide amounts) =====
 let priv=ld(SK.pv,false);
-const privApply=()=>{document.body.classList.toggle('priv',!!priv);$('eye').textContent=priv?'🙈':'👁';$('eye').setAttribute('aria-pressed',String(!!priv))};
+const SV=d=>'<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">'+d+'</svg>';
+const IC={dark:SV('<path d="M12 3a6 6 0 0 0 9 9 9 9 0 1 1-9-9z"/>'),light:SV('<circle cx="12" cy="12" r="4"/><path d="M12 2v2M12 20v2M4.93 4.93l1.41 1.41M17.66 17.66l1.41 1.41M2 12h2M20 12h2M6.34 17.66l-1.41 1.41M19.07 4.93l-1.41 1.41"/>'),neon:SV('<circle cx="13.5" cy="6.5" r="1.5"/><circle cx="17.5" cy="10.5" r="1.5"/><circle cx="8.5" cy="7.5" r="1.5"/><circle cx="6.5" cy="12.5" r="1.5"/><path d="M12 2a10 10 0 0 0 0 20c.93 0 1.5-.75 1.5-1.67 0-.43-.17-.83-.44-1.13-.29-.29-.44-.65-.44-1.13A1.64 1.64 0 0 1 14.27 16.4H16a6 6 0 0 0 6-6C22 5.82 17.5 2 12 2z"/>'),neonl:SV('<path d="M12 3l1.9 5.8L20 10l-5 3.6L16.5 20 12 16.3 7.5 20 9 13.6 4 10l6.1-1.2z"/>'),eye:SV('<path d="M2 12s3.5-7 10-7 10 7 10 7-3.5 7-10 7S2 12 2 12z"/><circle cx="12" cy="12" r="3"/>'),eyeOff:SV('<path d="M9.88 9.88a3 3 0 1 0 4.24 4.24"/><path d="M10.73 5.08A10.4 10.4 0 0 1 12 5c6.5 0 10 7 10 7a13.2 13.2 0 0 1-1.67 2.68"/><path d="M6.61 6.61A13.5 13.5 0 0 0 2 12s3.5 7 10 7a9.7 9.7 0 0 0 5.39-1.61"/><path d="M2 2l20 20"/>')};
+const privApply=()=>{document.body.classList.toggle('priv',!!priv);$('eye').innerHTML=priv?IC.eyeOff:IC.eye;$('eye').setAttribute('aria-pressed',String(!!priv))};
 $('eye').onclick=()=>{priv=!priv;sv(SK.pv,priv);privApply()};privApply();
 // ===== home app icons =====
 const APPS=[['insts','🗓','اقساط'],['debts','🤝','طلب و بدهی'],['cmp','📊','مقایسه با ماه قبل'],['goals','🎯','هدف‌های پس‌انداز'],['yr','📅','خلاصه سال']];
@@ -946,7 +957,7 @@ $('aclose').onclick=()=>$('abg').classList.remove('open');
 $('abg').addEventListener('click',e=>{if(e.target===$('abg'))$('abg').classList.remove('open')});
 // ===== theme =====
 const TH={dark:['🌙','#000000'],light:['☀️','#f2f2f2'],neon:['🎨','#07050f'],neonl:['🌸','#f6f2ff']};
-function setTheme(t,save){const r=document.documentElement.classList;r.remove('light','neon','neonl');if(t==='neonl')r.add('light','neonl');else if(t!=='dark')r.add(t);if(save)sv('dakhl-theme-v1',t);$('theme').textContent=TH[t][0];$('tc').content=TH[t][1];document.querySelectorAll('#thm [data-th]').forEach(b=>b.classList.toggle('on',b.dataset.th===t))}
+function setTheme(t,save){const r=document.documentElement.classList;r.remove('light','neon','neonl');if(t==='neonl')r.add('light','neonl');else if(t!=='dark')r.add(t);if(save)sv('dakhl-theme-v1',t);$('theme').innerHTML=IC[t]||TH[t][0];$('tc').content=TH[t][1];document.querySelectorAll('#thm [data-th]').forEach(b=>b.classList.toggle('on',b.dataset.th===t))}
 const curTheme=()=>document.documentElement.classList.contains('neonl')?'neonl':document.documentElement.classList.contains('light')?'light':document.documentElement.classList.contains('neon')?'neon':'dark';
 $('theme').onclick=()=>setTheme({dark:'light',light:'neon',neon:'neonl',neonl:'dark'}[curTheme()],1);
 $('thm').onclick=e=>{const b=e.target.closest('[data-th]');if(b)setTheme(b.dataset.th,1)};
@@ -988,5 +999,6 @@ $('charts').onclick=e=>{const cp=e.target.closest('[data-cp]');if(cp){catP=cp.da
 mon=jp(iso2d(today())).slice(0,2);cat=CATS.out[0].id;initDate();renderCats();render();
 </script>
 <script>if('serviceWorker' in navigator&&location.protocol.startsWith('http')){window.addEventListener('load',()=>navigator.serviceWorker.register('sw.js').catch(()=>{}))}</script>
+<script>(function(){const sync=b=>b.setAttribute('aria-pressed',String(b.classList.contains('on')));const scan=()=>document.querySelectorAll('.tabs button,.seg button').forEach(sync);new MutationObserver(m=>m.forEach(r=>{if(r.type==='attributes'&&r.target.matches&&r.target.matches('.tabs button,.seg button'))sync(r.target);else if(r.type==='childList')scan()})).observe(document.body,{subtree:true,childList:true,attributes:true,attributeFilter:['class']});scan()})()</script>
 </body>
 </html>
