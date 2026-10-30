@@ -29,5 +29,29 @@
       "type": "image/png",
       "purpose": "maskable"
     }
+  ],
+  "shortcuts": [
+    {
+      "name": "هزینه‌ی جدید",
+      "short_name": "هزینه",
+      "url": "./index.html?add=out",
+      "icons": [
+        {
+          "src": "icons/icon-192.png",
+          "sizes": "192x192"
+        }
+      ]
+    },
+    {
+      "name": "درآمد جدید",
+      "short_name": "درآمد",
+      "url": "./index.html?add=in",
+      "icons": [
+        {
+          "src": "icons/icon-192.png",
+          "sizes": "192x192"
+        }
+      ]
+    }
   ]
 }
