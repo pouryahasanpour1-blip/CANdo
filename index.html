@@ -364,9 +364,10 @@ html.light.neonl #cbg .bi{box-shadow:inset 0 0 0 1px rgba(224,57,154,.35)}
 html.light.neonl #gbg.acc .crow.a0 input{box-shadow:inset 0 0 0 1px rgba(224,57,154,.35)}
 html.light.neonl .rem{border:1px solid rgba(224,57,154,.35)}
 html.light.neonl #txs[data-t=tr]{--acbg:rgba(224,57,154,.14);--acg:rgba(224,57,154,.3)}
-@media (min-width:900px){
+@media (min-width:900px) and (max-width:1023.98px){
   body{width:calc(100% - 48px);max-width:1180px;padding:24px 0 110px;display:grid;grid-template-columns:repeat(12,minmax(0,1fr));gap:14px;align-content:start}
-  .topbar,#instrem,#bkrem,.mnav,#apps,#q,#acs,#tabs,#list{grid-column:1/-1}
+  .topbar,#instrem,#bkrem,.mnav,#apps,#ins,#q,#acs,#tabs,#list{grid-column:1/-1}
+  #ins:empty{display:none}
   .topbar{margin-bottom:0}
   #instrem:empty,#bkrem:empty{display:none}
   .hero{grid-column:span 5;margin:0}
@@ -496,6 +497,72 @@ html.light .cs-add{color:color-mix(in srgb,var(--y) 60%,#000)}
 .cs-foot{position:sticky;bottom:0;padding:10px 0 calc(16px + env(safe-area-inset-bottom,0px));background:linear-gradient(to top,var(--sbg,#141414) 70%,transparent)}
 html.light .cs-foot{--sbg:#f6f6f6}html.neon .cs-foot{--sbg:#0e0a22}
 @media (prefers-reduced-motion:reduce){.cs-em,.cs-seg button{transition:none}}
+
+/* Desktop layout (v2.1.0) — sidebar + dashboard, only ≥1024px */
+.dk-only{display:none}
+@media (min-width:1024px){
+  body.dk{max-width:1440px;width:100%;padding:24px 28px 40px;display:grid;grid-template-columns:316px minmax(0,1fr);gap:28px;align-items:start}
+  .dk-side{position:sticky;top:24px;max-height:calc(100dvh - 48px);overflow-y:auto;display:flex;flex-direction:column;gap:14px;padding:4px 4px 8px;scrollbar-width:thin;scrollbar-color:var(--line) transparent}
+  .dk-side .topbar{margin:0;padding:2px 2px 6px}
+  .dk-side #instrem:empty,.dk-side #bkrem:empty,.dk-side #accbal:empty{display:none}
+  .dk-side .hero{margin:0;padding:20px 20px 16px;border-radius:24px}
+  .dk-side .hero .bal{font-size:32px;margin:2px 0 12px}
+  .dk-side .split b{font-size:15px}
+  .dk-side #accbal .card{margin:0}
+  .dk-add{display:flex;align-items:center;justify-content:center;gap:8px;width:100%;min-height:48px;border:0;border-radius:16px;background:var(--y);color:var(--yd);font:inherit;font-weight:800;font-size:15px;cursor:pointer;box-shadow:0 8px 22px color-mix(in srgb,var(--y) 28%,transparent);transition:transform .15s,box-shadow .2s}
+  .dk-add:hover{transform:translateY(-1px);box-shadow:0 12px 28px color-mix(in srgb,var(--y) 36%,transparent)}
+  .dk-add svg{width:20px;height:20px}
+  .dk-add kbd,.dk-k{font:600 11px/1 Outfit,system-ui,sans-serif;padding:4px 6px;border-radius:6px;background:rgba(0,0,0,.14)}
+  .dk-lbl{font-size:12px;font-weight:700;color:var(--mute);margin:6px 8px -6px;letter-spacing:.2px}
+  .dk-side .apps{display:flex;flex-direction:column;gap:2px;margin:0;background:var(--card);border-radius:20px;padding:6px}
+  .dk-side .ap{flex-direction:row;gap:12px;padding:8px 10px;border-radius:14px;cursor:pointer;text-align:right;transition:background .15s}
+  .dk-side .ap:hover{background:color-mix(in srgb,var(--txt) 6%,transparent)}
+  .dk-side .ap i{width:38px;height:38px;border-radius:12px;flex:none}
+  .dk-side .ap i svg{width:20px;height:20px}
+  .dk-side .ap span{flex:1;font-size:13.5px;text-align:right}
+  .dk-side .ap small{min-height:0;font-size:11.5px}
+  .dk-hint{font-size:11.5px;color:var(--mute);line-height:2;padding:0 8px}
+  .dk-hint .dk-k{background:var(--card);color:var(--txt);border:1px solid var(--line);margin:0 2px}
+  .dk-main{display:grid;grid-template-columns:repeat(12,minmax(0,1fr));gap:16px;align-content:start;min-width:0}
+  .dk-main>*{grid-column:1/-1;margin:0}
+  .dk-bar{display:flex;align-items:center;gap:14px;position:sticky;top:0;z-index:3;padding:10px 0;background:color-mix(in srgb,var(--bg) 88%,transparent);backdrop-filter:blur(12px);-webkit-backdrop-filter:blur(12px)}
+  .dk-bar .mnav{margin:0;gap:10px;flex:none}
+  .dk-bar .mnav b{font-size:20px;font-weight:800;min-width:150px;text-align:center}
+  .dk-bar .mnav button{cursor:pointer;transition:background .15s}
+  .dk-bar .mnav button:hover{background:color-mix(in srgb,var(--txt) 10%,var(--card))}
+  .dk-bar .srch{margin:0;max-width:380px;margin-inline-start:auto;padding-inline-start:40px;background:var(--card) url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='%238d8d8d' stroke-width='2' stroke-linecap='round'%3E%3Ccircle cx='11' cy='11' r='7'/%3E%3Cpath d='m20 20-3.5-3.5'/%3E%3C/svg%3E") no-repeat right 14px center/18px}
+  .dk-main #charts{grid-column:span 7}
+  .dk-main #budget{grid-column:span 5}
+  .dk-main #charts:empty,.dk-main #budget:empty,.dk-main #ins:empty{display:none}
+  .dk-main:has(#charts:empty) #budget,.dk-main:has(#budget:empty) #charts{grid-column:1/-1}
+  .dk-main #charts .card,.dk-main #budget .card{height:100%;margin:0}
+  .dk-main #ins .card{margin:0}
+  .dk-tx{background:var(--card);border-radius:24px;padding:18px 18px 10px}
+  .dk-tx-h{display:flex;align-items:center;justify-content:space-between;gap:12px;flex-wrap:wrap;margin-bottom:6px}
+  .dk-tx-h h2{font-size:17px;font-weight:800}
+  .dk-tx .tabs{margin:0;gap:6px}
+  .dk-tx .tabs button{flex:none;padding:8px 16px;background:color-mix(in srgb,var(--txt) 5%,transparent);cursor:pointer}
+  .dk-tx #acs:empty{display:none}
+  .dk-tx #acs{margin:4px 0 0}
+  .dk-tx #list{display:block}
+  .dk-tx .day{margin:14px 6px 4px;font-weight:600}
+  .dk-tx .item{background:none;border-radius:14px;margin:0;padding:10px 12px;transition:background .15s;cursor:pointer}
+  .dk-tx .item+.item{box-shadow:inset 0 1px 0 var(--line)}
+  .dk-tx .item:hover{background:color-mix(in srgb,var(--txt) 5%,transparent);box-shadow:none}
+  .dk-tx .item:hover+.item{box-shadow:none}
+  .dk-tx .item .amt{font-size:15px;font-variant-numeric:tabular-nums}
+  .dk-tx .item .del{opacity:0;transition:opacity .15s}
+  .dk-tx .item:hover .del,.dk-tx .item .del:focus-visible{opacity:1}
+  .dk-tx .empty{padding:56px 20px}
+  body.dk .fab{display:none}
+  body.dk .dk-only{display:block}
+  .sheet-bg{align-items:center;padding:24px}
+  .sheet{max-width:560px;border-radius:24px;max-height:90dvh;overflow-y:auto}
+  .card,.hero,.item{transition:background .15s}
+}
+@media (min-width:1024px) and (hover:none){.dk-tx .item .del{opacity:1}}
+@media (min-width:1280px){.dk-main #budget{grid-column:span 4}.dk-main #charts{grid-column:span 8}}
+@media (min-width:1024px) and (prefers-reduced-motion:reduce){.dk-add,.dk-tx .item,.dk-side .ap{transition:none}.dk-add:hover{transform:none}}
 </style>
 </head>
 <body>
@@ -602,7 +669,7 @@ html.light .cs-foot{--sbg:#f6f6f6}html.neon .cs-foot{--sbg:#0e0a22}
   <div class="set-grp">
     <button class="sr sr-dng" id="wipeopen"><span class="sr-ic" style="--c:#ff5c7a"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M3 6h18"/><path d="M19 6v14a2 2 0 0 1-2 2H7a2 2 0 0 1-2-2V6"/><path d="M8 6V4a2 2 0 0 1 2-2h4a2 2 0 0 1 2 2v2"/><path d="M10 11v6M14 11v6"/></svg></span><span class="sr-tx"><b>پاک کردن اطلاعات</b><small>تراکنش‌ها، حساب‌ها، دسته‌ها و بودجه‌ها</small></span><span class="sr-chev"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="m15 18-6-6 6-6"/></svg></span></button>
   </div>
-  <div class="appver"><span class="lg-tx sm" dir="ltr"><b>CAN</b><i>do</i></span> · نسخه‌ی <span dir="ltr">2.0.0</span></div>
+  <div class="appver"><span class="lg-tx sm" dir="ltr"><b>CAN</b><i>do</i></span> · نسخه‌ی <span dir="ltr">2.1.0</span></div>
 </div></div>
 <div class="sheet-bg" id="abg"><div class="sheet" style="max-height:88vh;overflow-y:auto"><div class="ch" id="at" style="color:var(--y);font-size:16px"></div><section id="insts"></section><section id="debts"></section><section id="cmp"></section><section id="goals"></section><section id="yr"></section><section id="cal"></section><button class="save sec" id="aclose" style="margin-top:6px">بستن</button></div></div>
 <div class="sheet-bg" id="gbg"><div class="sheet" style="max-height:88vh;overflow-y:auto"><div class="ch" id="gt"></div><div id="gb"></div><button class="save" id="gsave" style="margin-top:8px">ذخیره</button></div></div>
@@ -1337,6 +1404,49 @@ $('pdfbtn').onclick=()=>{
 
 const _render=render;render=function(){_render();insRender()};
 visApply();render();
+</script>
+<script>
+/* Desktop layout (v2.1.0): wraps sections into sidebar + main on wide screens, restores on narrow */
+(function(){
+const mq=matchMedia('(min-width:1024px)'),B=document.body,$i=id=>document.getElementById(id);
+const order=['.topbar','#instrem','#bkrem','.hero','#accbal','.mnav','#charts','#budget','#ins','#apps','#q','#acs','#tabs','#list'].map(s=>document.querySelector(s));
+const anchor=$i('open');let built=false,side,main,bar,tx,txh,lbl,add,hint;
+const PLUS='<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round" aria-hidden="true"><path d="M12 5v14M5 12h14"/></svg>';
+function el(t,c,h){const e=document.createElement(t);if(c)e.className=c;if(h)e.innerHTML=h;return e}
+function build(){
+  side=el('aside','dk-side');main=el('div','dk-main');bar=el('div','dk-bar');tx=el('section','dk-tx');txh=el('div','dk-tx-h','<h2>تراکنش‌ها</h2>');
+  add=el('button','dk-add',PLUS+'<span>ثبت تراکنش</span><kbd dir="ltr">N</kbd>');add.type='button';add.onclick=()=>anchor.click();
+  lbl=el('div','dk-lbl','ابزارها');
+  hint=el('div','dk-hint','<span class="dk-k" dir="ltr">N</span> ثبت · <span class="dk-k" dir="ltr">/</span> جستجو · <span class="dk-k" dir="ltr">← →</span> ماه · <span class="dk-k" dir="ltr">Esc</span> بستن');
+  side.setAttribute('aria-label','نوار کناری');
+}
+function on(){
+  if(B.classList.contains('dk'))return;if(!built){build();built=true}
+  const [top,ins1,bk,hero,acc,mnav,ch,bud,ins,apps,q,acs,tabs,list]=order;
+  side.append(top,ins1,bk,hero,acc,add,lbl,apps,hint);
+  bar.append(mnav,q);txh.append(tabs);tx.append(txh,acs,list);
+  main.append(bar,ch,bud,ins,tx);
+  B.insertBefore(side,anchor);B.insertBefore(main,anchor);B.classList.add('dk');
+}
+function off(){
+  if(!B.classList.contains('dk'))return;
+  order.forEach(n=>B.insertBefore(n,anchor));side.remove();main.remove();B.classList.remove('dk');
+}
+const apply=()=>mq.matches?on():off();apply();
+mq.addEventListener?mq.addEventListener('change',apply):mq.addListener(apply);
+/* keyboard: works on any screen with a keyboard */
+document.addEventListener('keydown',e=>{
+  const lock=$i('lock');if(lock&&getComputedStyle(lock).display!=='none')return;
+  if(e.key==='Escape'){const o=[...document.querySelectorAll('.sheet-bg.open')].pop();if(o){e.preventDefault();o.dispatchEvent(new MouseEvent('click',{bubbles:true}))}return}
+  const t=e.target,typing=t&&(t.isContentEditable||/^(INPUT|TEXTAREA|SELECT)$/.test(t.tagName));
+  if(typing||e.ctrlKey||e.metaKey||e.altKey||document.querySelector('.sheet-bg.open'))return;
+  const k=e.key.toLowerCase();
+  if(k==='n'||k==='ث'){e.preventDefault();anchor.click()}
+  else if(k==='/'||k==='.'){e.preventDefault();$i('q').focus()}
+  else if(e.key==='ArrowRight'){e.preventDefault();$i('pm').click()}
+  else if(e.key==='ArrowLeft'){e.preventDefault();$i('nm').click()}
+});
+})();
 </script>
 <script src="sync.js"></script>
 <div id="rpt"></div>
