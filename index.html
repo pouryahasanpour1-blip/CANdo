@@ -13,7 +13,7 @@
 <meta name="apple-mobile-web-app-title" content="CANdo">
 <link rel="apple-touch-icon" href="icons/apple-touch-icon.png">
 <link rel="icon" type="image/png" href="icons/icon-192.png">
-<link href="https://fonts.googleapis.com/css2?family=Vazirmatn:wght@400;600;800&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Outfit:wght@700;800&family=Vazirmatn:wght@400;600;800&display=swap" rel="stylesheet">
 <style>
 :root{--bg:#000;--card:#1b1b1b;--line:#2c2c2c;--mute:#8d8d8d;--txt:#f2f2f2;--y:#ffd21f;--t:#0abab5;--r:#ff4d4d;--yd:#1a1500;--exp:#c9c9c9;
 box-sizing:border-box;padding-top:env(safe-area-inset-top,0px);padding-bottom:env(safe-area-inset-bottom,0px)}
@@ -380,13 +380,18 @@ html.light.neonl #txs[data-t=tr]{--acbg:rgba(224,57,154,.14);--acg:rgba(224,57,1
 .sr-sw{cursor:default}.sr-sw .tg{flex:none}
 #sbg .appver{margin-top:22px}
 #sbg .tg.on{background:var(--t)}
-/* v1.6.0: logo, icons, theme picker */
+/* v1.6.1: logo, icons, theme picker */
 .topbar{min-height:48px}
 .brand{display:flex;align-items:center;gap:9px}
 .lg-mk{width:34px;height:34px;flex:none;filter:drop-shadow(0 4px 10px rgba(255,196,0,.28))}
-.lg-tx{font-size:22px;font-weight:800;letter-spacing:-.3px;line-height:1;font-family:Vazirmatn,system-ui,sans-serif}
-.lg-tx b{font-weight:800;color:var(--txt)}
-.lg-tx i{font-style:normal;font-weight:800;background:linear-gradient(135deg,var(--t),color-mix(in srgb,var(--t) 55%,var(--y)));-webkit-background-clip:text;background-clip:text;color:transparent}
+.lg-col{display:flex;flex-direction:column;gap:3px}
+.lg-tx{font-family:Outfit,Vazirmatn,system-ui,sans-serif;font-size:25px;font-weight:800;letter-spacing:-.6px;line-height:1;display:inline-flex;align-items:baseline}
+.lg-tx b,.lg-tx i{font-weight:800;font-style:normal;-webkit-background-clip:text;background-clip:text;color:transparent}
+.lg-tx b{background-image:linear-gradient(135deg,#ffe066,#ffb800)}
+.lg-tx i{background-image:linear-gradient(135deg,#2fe6d3,#0a9e9a);margin-inline-start:1px}
+html.light .lg-tx b{background-image:linear-gradient(135deg,#f5b800,#e09600)}
+.lg-tx.sm{font-size:14px;letter-spacing:-.2px;vertical-align:middle}
+.lg-sub{font-size:11px;color:var(--mute);font-weight:600;line-height:1;text-align:left}
 .setbtn{width:44px;height:44px;border-radius:14px;border:0;background:var(--card);color:var(--txt);display:grid;place-items:center;padding:0;cursor:pointer}
 .setbtn svg{width:22px;height:22px}.setbtn:active{transform:scale(.94)}
 .mnav button{display:grid;place-items:center}.mnav button svg{width:20px;height:20px}
@@ -417,7 +422,7 @@ html.light.neonl #txs[data-t=tr]{--acbg:rgba(224,57,154,.14);--acg:rgba(224,57,1
 </style>
 </head>
 <body>
-<div class="topbar"><div class="brand" dir="ltr"><svg class="lg-mk" viewBox="0 0 64 64" aria-hidden="true"><defs><linearGradient id="lgg" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="#ffe066"/><stop offset="1" stop-color="#ffc400"/></linearGradient></defs><rect width="64" height="64" rx="16" fill="url(#lgg)"/><path d="M45.4 20A18 18 0 1 0 45.4 44" fill="none" stroke="#1a1500" stroke-width="6.5" stroke-linecap="round"/><path d="M25 32.5l5 5 9.5-10" fill="none" stroke="#0abab5" stroke-width="5.2" stroke-linecap="round" stroke-linejoin="round"/></svg><span class="lg-tx"><b>CAN</b><i>do</i></span></div><button class="setbtn" id="setopen" aria-label="تنظیمات"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12.22 2h-.44a2 2 0 0 0-2 2v.18a2 2 0 0 1-1 1.73l-.43.25a2 2 0 0 1-2 0l-.15-.08a2 2 0 0 0-2.73.73l-.22.38a2 2 0 0 0 .73 2.73l.15.1a2 2 0 0 1 1 1.72v.51a2 2 0 0 1-1 1.74l-.15.09a2 2 0 0 0-.73 2.73l.22.38a2 2 0 0 0 2.73.73l.15-.08a2 2 0 0 1 2 0l.43.25a2 2 0 0 1 1 1.73V20a2 2 0 0 0 2 2h.44a2 2 0 0 0 2-2v-.18a2 2 0 0 1 1-1.73l.43-.25a2 2 0 0 1 2 0l.15.08a2 2 0 0 0 2.73-.73l.22-.39a2 2 0 0 0-.73-2.73l-.15-.08a2 2 0 0 1-1-1.74v-.5a2 2 0 0 1 1-1.74l.15-.09a2 2 0 0 0 .73-2.73l-.22-.38a2 2 0 0 0-2.73-.73l-.15.08a2 2 0 0 1-2 0l-.43-.25a2 2 0 0 1-1-1.73V4a2 2 0 0 0-2-2z"/><circle cx="12" cy="12" r="3"/></svg></button><button id="theme" hidden aria-hidden="true" tabindex="-1"></button><button id="eye" hidden aria-hidden="true" tabindex="-1"></button></div>
+<div class="topbar"><div class="brand" dir="ltr"><svg class="lg-mk" viewBox="0 0 64 64" aria-hidden="true"><defs><linearGradient id="lgg" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="#ffe066"/><stop offset="1" stop-color="#ffc400"/></linearGradient></defs><rect width="64" height="64" rx="16" fill="url(#lgg)"/><path d="M45.4 20A18 18 0 1 0 45.4 44" fill="none" stroke="#1a1500" stroke-width="6.5" stroke-linecap="round"/><path d="M25 32.5l5 5 9.5-10" fill="none" stroke="#0abab5" stroke-width="5.2" stroke-linecap="round" stroke-linejoin="round"/></svg><span class="lg-col"><span class="lg-tx"><b>CAN</b><i>do</i></span><small class="lg-sub" dir="rtl">حساب‌وکتاب ساده</small></span></div><button class="setbtn" id="setopen" aria-label="تنظیمات"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12.22 2h-.44a2 2 0 0 0-2 2v.18a2 2 0 0 1-1 1.73l-.43.25a2 2 0 0 1-2 0l-.15-.08a2 2 0 0 0-2.73.73l-.22.38a2 2 0 0 0 .73 2.73l.15.1a2 2 0 0 1 1 1.72v.51a2 2 0 0 1-1 1.74l-.15.09a2 2 0 0 0-.73 2.73l.22.38a2 2 0 0 0 2.73.73l.15-.08a2 2 0 0 1 2 0l.43.25a2 2 0 0 1 1 1.73V20a2 2 0 0 0 2 2h.44a2 2 0 0 0 2-2v-.18a2 2 0 0 1 1-1.73l.43-.25a2 2 0 0 1 2 0l.15.08a2 2 0 0 0 2.73-.73l.22-.39a2 2 0 0 0-.73-2.73l-.15-.08a2 2 0 0 1-1-1.74v-.5a2 2 0 0 1 1-1.74l.15-.09a2 2 0 0 0 .73-2.73l-.22-.38a2 2 0 0 0-2.73-.73l-.15.08a2 2 0 0 1-2 0l-.43-.25a2 2 0 0 1-1-1.73V4a2 2 0 0 0-2-2z"/><circle cx="12" cy="12" r="3"/></svg></button><button id="theme" hidden aria-hidden="true" tabindex="-1"></button><button id="eye" hidden aria-hidden="true" tabindex="-1"></button></div>
 <section id="instrem"></section>
 <section id="bkrem"></section>
 <section class="hero">
@@ -510,7 +515,7 @@ html.light.neonl #txs[data-t=tr]{--acbg:rgba(224,57,154,.14);--acg:rgba(224,57,1
     <div class="sr sr-sw"><span class="sr-ic" style="--c:#8b7bff"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M9.88 9.88a3 3 0 1 0 4.24 4.24"/><path d="M10.73 5.08A10.4 10.4 0 0 1 12 5c6.5 0 10 7 10 7a13.2 13.2 0 0 1-1.67 2.68"/><path d="M6.61 6.61A13.5 13.5 0 0 0 2 12s3.5 7 10 7a9.7 9.7 0 0 0 5.39-1.61"/><path d="M2 2l20 20"/></svg></span><span class="sr-tx"><b id="privl">مخفی کردن مبالغ</b><small>برای وقتی که کسی کنارت هست</small></span><button class="tg" id="privt" data-keep role="switch" aria-labelledby="privl"><i></i></button></div>
     <div class="sr sr-sw"><span class="sr-ic" style="--c:#ff4d4d"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="3" y="11" width="18" height="11" rx="2"/><path d="M7 11V7a5 5 0 0 1 10 0v4"/></svg></span><span class="sr-tx"><b id="lockl">قفل اپ با رمز</b><small>اگر رمز را فراموش کنی، فقط با پاک کردن اطلاعات مرورگر باز می‌شود؛ پس بکاپ بگیر.</small></span><button class="tg" id="lockt" data-keep role="switch" aria-labelledby="lockl"><i></i></button></div>
   </div>
-  <div class="appver"><b dir="ltr"><span style="color:var(--y)">CAN</span><span style="color:var(--t)">do</span></b> · نسخه‌ی <span dir="ltr">1.6.0</span></div>
+  <div class="appver"><span class="lg-tx sm" dir="ltr"><b>CAN</b><i>do</i></span> · نسخه‌ی <span dir="ltr">1.6.1</span></div>
 </div></div>
 <div class="sheet-bg" id="abg"><div class="sheet" style="max-height:88vh;overflow-y:auto"><div class="ch" id="at" style="color:var(--y);font-size:16px"></div><section id="insts"></section><section id="debts"></section><section id="cmp"></section><section id="goals"></section><section id="yr"></section><button class="save sec" id="aclose" style="margin-top:6px">بستن</button></div></div>
 <div class="sheet-bg" id="gbg"><div class="sheet" style="max-height:88vh;overflow-y:auto"><div class="ch" id="gt"></div><div id="gb"></div><button class="save" id="gsave" style="margin-top:8px">ذخیره</button></div></div>
