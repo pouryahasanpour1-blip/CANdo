@@ -366,6 +366,11 @@ html.light.neonl #txs[data-t=tr]{--acbg:rgba(224,57,154,.14);--acg:rgba(224,57,1
 .set-head h2{font-size:22px;font-weight:800}
 .set-x{width:44px;height:44px;border-radius:50%;border:0;background:var(--card);color:var(--mute);display:grid;place-items:center;padding:0}
 .set-x svg{width:20px;height:20px}
+.sr-dng .sr-tx b{color:#ff5c7a}
+.wopt{display:flex;align-items:center;gap:12px;padding:12px 14px;margin-top:8px;border-radius:16px;background:var(--card);cursor:pointer;text-align:right}
+.wopt input{width:20px;height:20px;flex:none;accent-color:var(--y)}
+.wopt span{min-width:0}.wopt b{display:block;font-size:14px;font-weight:600}.wopt small{display:block;color:var(--mute);font-size:12px;margin-top:2px;line-height:1.7}
+.save.dng{background:#ff5c7a;color:#fff}.save:disabled{opacity:.45}
 .set-lbl{font-size:13px;font-weight:600;color:var(--mute);margin:18px 6px 8px}
 .set-grp{background:var(--card);border-radius:20px;overflow:hidden}
 .sr{display:flex;align-items:center;gap:12px;width:100%;min-height:64px;padding:12px 14px;background:none;border:0;text-align:right;position:relative;cursor:pointer;transition:background .15s}
@@ -552,11 +557,16 @@ html.light .cs-foot{--sbg:#f6f6f6}html.neon .cs-foot{--sbg:#0e0a22}
     <div class="sr sr-sw"><span class="sr-ic" style="--c:#8b7bff"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M9.88 9.88a3 3 0 1 0 4.24 4.24"/><path d="M10.73 5.08A10.4 10.4 0 0 1 12 5c6.5 0 10 7 10 7a13.2 13.2 0 0 1-1.67 2.68"/><path d="M6.61 6.61A13.5 13.5 0 0 0 2 12s3.5 7 10 7a9.7 9.7 0 0 0 5.39-1.61"/><path d="M2 2l20 20"/></svg></span><span class="sr-tx"><b id="privl">مخفی کردن مبالغ</b><small>برای وقتی که کسی کنارت هست</small></span><button class="tg" id="privt" data-keep role="switch" aria-labelledby="privl"><i></i></button></div>
     <div class="sr sr-sw"><span class="sr-ic" style="--c:#ff4d4d"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="3" y="11" width="18" height="11" rx="2"/><path d="M7 11V7a5 5 0 0 1 10 0v4"/></svg></span><span class="sr-tx"><b id="lockl">قفل اپ با رمز</b><small>اگر رمز را فراموش کنی، فقط با پاک کردن اطلاعات مرورگر باز می‌شود؛ پس بکاپ بگیر.</small></span><button class="tg" id="lockt" data-keep role="switch" aria-labelledby="lockl"><i></i></button></div>
   </div>
-  <div class="appver"><span class="lg-tx sm" dir="ltr"><b>CAN</b><i>do</i></span> · نسخه‌ی <span dir="ltr">1.8.0</span></div>
+  <h3 class="set-lbl">منطقه‌ی خطر</h3>
+  <div class="set-grp">
+    <button class="sr sr-dng" id="wipeopen"><span class="sr-ic" style="--c:#ff5c7a"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M3 6h18"/><path d="M19 6v14a2 2 0 0 1-2 2H7a2 2 0 0 1-2-2V6"/><path d="M8 6V4a2 2 0 0 1 2-2h4a2 2 0 0 1 2 2v2"/><path d="M10 11v6M14 11v6"/></svg></span><span class="sr-tx"><b>پاک کردن اطلاعات</b><small>تراکنش‌ها، حساب‌ها، دسته‌ها و بودجه‌ها</small></span><span class="sr-chev"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="m15 18-6-6 6-6"/></svg></span></button>
+  </div>
+  <div class="appver"><span class="lg-tx sm" dir="ltr"><b>CAN</b><i>do</i></span> · نسخه‌ی <span dir="ltr">1.9.0</span></div>
 </div></div>
 <div class="sheet-bg" id="abg"><div class="sheet" style="max-height:88vh;overflow-y:auto"><div class="ch" id="at" style="color:var(--y);font-size:16px"></div><section id="insts"></section><section id="debts"></section><section id="cmp"></section><section id="goals"></section><section id="yr"></section><button class="save sec" id="aclose" style="margin-top:6px">بستن</button></div></div>
 <div class="sheet-bg" id="gbg"><div class="sheet" style="max-height:88vh;overflow-y:auto"><div class="ch" id="gt"></div><div id="gb"></div><button class="save" id="gsave" style="margin-top:8px">ذخیره</button></div></div>
 <div class="sheet-bg" id="vbg"><div class="sheet" role="dialog" aria-label="تغییر ظاهر" style="max-height:88vh;overflow-y:auto"><div class="set-grab" aria-hidden="true"></div><div class="set-head"><h2>ظاهر برنامه</h2></div><h3 class="set-lbl">تم</h3><div class="thgrid" id="thm"><button data-th="dark" class="thc" aria-label="تم تیره"><span class="thp" style="--b:#000;--k:#1b1b1b;--y:#ffd21f;--t:#0abab5;--x:#f2f2f2"><i class="thh"></i><i class="thr"><u></u><u></u></i><i class="thr"><u></u><u></u></i></span><span class="thn">تیره<em><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20 6 9 17l-5-5"/></svg></em></span></button><button data-th="light" class="thc" aria-label="تم روشن"><span class="thp" style="--b:#f2f2f2;--k:#fff;--y:#ffd21f;--t:#0abab5;--x:#111"><i class="thh"></i><i class="thr"><u></u><u></u></i><i class="thr"><u></u><u></u></i></span><span class="thn">روشن<em><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20 6 9 17l-5-5"/></svg></em></span></button><button data-th="neon" class="thc" aria-label="تم رنگی"><span class="thp" style="--b:#07050f;--k:#14102a;--y:#ff5fb7;--t:#2fe6d3;--x:#f4f0ff"><i class="thh"></i><i class="thr"><u></u><u></u></i><i class="thr"><u></u><u></u></i></span><span class="thn">رنگی<em><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20 6 9 17l-5-5"/></svg></em></span></button><button data-th="neonl" class="thc" aria-label="تم رنگی روشن"><span class="thp" style="--b:#f6f2ff;--k:#fff;--y:#e0399a;--t:#0fb9a8;--x:#1c1236"><i class="thh"></i><i class="thr"><u></u><u></u></i><i class="thr"><u></u><u></u></i></span><span class="thn">رنگی روشن<em><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20 6 9 17l-5-5"/></svg></em></span></button></div><h3 class="set-lbl">بخش‌های صفحه‌ی اصلی</h3><div class="bt" style="display:block;margin:-2px 6px 8px;line-height:1.8">هر بخشی که خاموش شود از صفحه‌ی اصلی نمایش داده نمی‌شود. اطلاعاتت پاک نمی‌شود.</div><div id="vlist" class="set-grp"></div><button class="save sec" id="vclose" style="margin-top:6px">بستن</button></div></div>
+<div class="sheet-bg" id="wipebg"><div class="sheet" role="dialog" aria-labelledby="wipet" style="max-height:90vh;overflow-y:auto"><div class="set-grab" aria-hidden="true"></div><div class="set-head"><h2 id="wipet">انتخاب موارد برای پاک کردن</h2></div><div class="bt" style="display:block;margin:0 4px 6px;line-height:1.9">فقط گزینه‌های انتخاب‌شده پاک می‌شوند. برای نهایی‌کردن، یک‌بار دیگر تأیید می‌گیریم.</div><label class="wopt"><input type="checkbox" id="wipeall"><span><b>انتخاب همه‌ی اطلاعات مالی</b><small>تم، قفل، تنظیمات صفحه و ورود همگام‌سازی پاک نمی‌شوند.</small></span></label><div id="wipeopts"></div><div class="bt" id="wipenote" style="display:block;margin:10px 4px 0;line-height:1.8;font-size:12px">اگر تراکنش‌ها را نگه داری، مواردی که به حساب یا دسته‌ی حذف‌شده وابسته‌اند باقی می‌مانند و ممکن است «بدون دسته» نمایش داده شوند.</div><div style="display:flex;gap:8px;margin-top:14px"><button class="save dng" id="wipenext" disabled>ادامه و تأیید</button><button class="save sec" id="wipecancel">انصراف</button></div></div></div>
 <div id="lock"><div id="lt"></div><div id="dots"></div><div id="pad"></div><button class="lnk" id="lcancel">لغو</button></div>
 
 <script>
@@ -1113,6 +1123,38 @@ mon=jp(iso2d(today())).slice(0,2);cat=CATS.out[0].id;initDate();renderCats();ren
 </script>
 <script>if('serviceWorker' in navigator&&location.protocol.startsWith('http')){window.addEventListener('load',()=>navigator.serviceWorker.register('sw.js').catch(()=>{}))}</script>
 <script>(function(){const sync=b=>b.setAttribute('aria-pressed',String(b.classList.contains('on')));const scan=()=>document.querySelectorAll('.tabs button,.seg button').forEach(sync);new MutationObserver(m=>m.forEach(r=>{if(r.type==='attributes'&&r.target.matches&&r.target.matches('.tabs button,.seg button'))sync(r.target);else if(r.type==='childList')scan()})).observe(document.body,{subtree:true,childList:true,attributes:true,attributeFilter:['class']});scan()})()</script>
+<script>
+/* پاک کردن اطلاعات (مثل اپ بودجه) */
+const WIPE=[
+  {k:'tx',n:'تراکنش‌ها و انتقال‌ها',d:()=>fa(items.length)+' مورد ثبت‌شده'},
+  {k:'accs',n:'حساب‌ها',d:()=>fa(accs.length)+' حساب؛ حساب‌های پیش‌فرض (نقد و کارت) برمی‌گردند'},
+  {k:'cats',n:'دسته‌ها',d:()=>fa(CATS.out.length+CATS.in.length)+' دسته؛ بودجه و هدف‌های درآمدی وابسته هم پاک می‌شوند'},
+  {k:'bud',n:'بودجه و هدف‌های درآمدی',d:()=>fa(Object.keys(cbud).length+Object.keys(cgoal).length+(budget?1:0))+' تنظیم'},
+  {k:'sg',n:'هدف‌های پس‌انداز',d:()=>fa(sgoals.length)+' هدف'},
+  {k:'rec',n:'تراکنش‌های تکراری',d:()=>fa(recs.length)+' مورد'},
+  {k:'dbt',n:'اقساط، طلب و بدهی',d:()=>fa(insts.length+debts.length)+' مورد'}
+];
+function wipeState(){const a=$('wipeopts').querySelectorAll('[data-wipe]'),c=$('wipeopts').querySelectorAll('[data-wipe]:checked');$('wipeall').checked=a.length>0&&a.length===c.length;$('wipeall').indeterminate=c.length>0&&c.length<a.length;$('wipenext').disabled=!c.length}
+$('wipeopen').onclick=()=>{$('wipeopts').innerHTML=WIPE.map(o=>`<label class="wopt"><input type="checkbox" data-wipe="${o.k}"><span><b>${o.n}</b><small>${o.d()}</small></span></label>`).join('');
+  $('wipeall').checked=false;$('wipeall').indeterminate=false;$('wipenext').disabled=true;$('wipebg').classList.add('open')};
+$('wipeall').onchange=()=>{$('wipeopts').querySelectorAll('[data-wipe]').forEach(x=>x.checked=$('wipeall').checked);wipeState()};
+$('wipeopts').onchange=wipeState;
+$('wipecancel').onclick=()=>$('wipebg').classList.remove('open');
+$('wipebg').onclick=e=>{if(e.target===$('wipebg'))$('wipebg').classList.remove('open')};
+$('wipenext').onclick=()=>{const keys=[...$('wipeopts').querySelectorAll('[data-wipe]:checked')].map(x=>x.dataset.wipe);if(!keys.length)return;
+  const names=keys.map(k=>WIPE.find(x=>x.k===k).n),extra=keys.includes('cats')&&!keys.includes('bud')?'\nبودجه و هدف‌های درآمدی هم به‌دلیل وابستگی پاک می‌شوند.':'',
+    synced=!!localStorage.getItem('cando-sync-auth')?'\nچون همگام‌سازی روشنه، از اپ بودجه هم پاک می‌شوند.':'';
+  if(!confirm('این موارد پاک شوند؟\n'+names.join('، ')+extra+synced+'\nاین کار قابل بازگشت نیست.'))return;
+  const p=new Set(keys),nx=a=>a.reduce((m,x)=>Math.max(m,+x.id||0),-1)+1;
+  if(p.has('tx')){items=[];persist()}
+  if(p.has('accs')){const b=nx(accs);accs=[{id:b,n:'نقد'},{id:b+1,n:'کارت'}];sv(SK.acc,accs)}
+  if(p.has('cats')){['out','in'].forEach(t=>{const b=nx(CATS[t]);CATS[t]=DEF[t].map((c,i)=>({id:b+i,e:c[0],n:c[1]}))});try{localStorage.setItem(CK,JSON.stringify({out:CATS.out,in:CATS.in}))}catch(e){}}
+  if(p.has('bud')||p.has('cats')){cbud={};sv(SK.cb,cbud);cgoal={};sv(SK.cg,cgoal);budget=0;try{localStorage.setItem(BK,'0')}catch(e){}}
+  if(p.has('sg')){sgoals=[];sv(SK.sg,sgoals)}
+  if(p.has('rec')){recs=[];sv(SK.rec,recs)}
+  if(p.has('dbt')){insts=[];sv(SK.ins,insts);debts=[];sv(SK.dbt,debts)}
+  $('wipebg').classList.remove('open');location.reload()};
+</script>
 <script src="sync.js"></script>
 </body>
 </html>
