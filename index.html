@@ -702,7 +702,7 @@ html.lg-svg .lgb{-webkit-backdrop-filter:url(#container-glass) saturate(1.5);bac
   <div class="set-grp">
     <button class="sr sr-dng" id="wipeopen"><span class="sr-ic" style="--c:#ff5c7a"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M3 6h18"/><path d="M19 6v14a2 2 0 0 1-2 2H7a2 2 0 0 1-2-2V6"/><path d="M8 6V4a2 2 0 0 1 2-2h4a2 2 0 0 1 2 2v2"/><path d="M10 11v6M14 11v6"/></svg></span><span class="sr-tx"><b>پاک کردن اطلاعات</b><small>تراکنش‌ها، حساب‌ها، دسته‌ها و بودجه‌ها</small></span><span class="sr-chev"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="m15 18-6-6 6-6"/></svg></span></button>
   </div>
-  <div class="appver"><span class="lg-tx sm" dir="ltr"><b>CAN</b><i>do</i></span> · نسخه‌ی <span dir="ltr">2.3.0</span></div>
+  <div class="appver"><span class="lg-tx sm" dir="ltr"><b>CAN</b><i>do</i></span> · نسخه‌ی <span dir="ltr">2.3.1</span></div>
 </div></div>
 <div class="sheet-bg" id="abg"><div class="sheet" style="max-height:88vh;overflow-y:auto"><div class="ch" id="at" style="color:var(--y);font-size:16px"></div><section id="insts"></section><section id="debts"></section><section id="cmp"></section><section id="goals"></section><section id="yr"></section><section id="cal"></section><button class="save sec" id="aclose" style="margin-top:6px">بستن</button></div></div>
 <div class="sheet-bg" id="gbg"><div class="sheet" style="max-height:88vh;overflow-y:auto"><div class="ch" id="gt"></div><div id="gb"></div><button class="save" id="gsave" style="margin-top:8px">ذخیره</button></div></div>
@@ -1468,8 +1468,9 @@ function on(){
   const [top,ins1,bk,hero,acc,mnav,ch,bud,ins,apps,q,acs,tabs,list]=order;
   side.append(top,ins1,bk,hero,acc,add,lbl,apps,sset,hint);
   bar.append(mnav,q,bset);txh.append(tabs);tx.append(txh,acs,list);
-  main.append(bar,kp,ch,bud,ins,tx);kpi();
+  main.append(bar,kp,ch,bud,ins,tx);
   B.insertBefore(side,anchor);B.insertBefore(main,anchor);B.classList.add('dk');
+  try{kpi()}catch(e){}
 }
 function off(){
   if(!B.classList.contains('dk'))return;
@@ -1477,13 +1478,13 @@ function off(){
 }
 const num=t=>+String(t||'').replace(/[۰-۹]/g,d=>'۰۱۲۳۴۵۶۷۸۹'.indexOf(d)).replace(/[٠-٩]/g,d=>'٠١٢٣٤٥٦٧٨٩'.indexOf(d)).replace(/[^0-9]/g,'')||0;
 const F=n=>Math.abs(n).toLocaleString('en-US');
-function kpi(){if(!kp)return;const i=num($i('inc').textContent),o=num($i('exp').textContent),n=i-o;
+function kpi(){if(!kp||!kp.isConnected)return;const i=num($i('inc').textContent),o=num($i('exp').textContent),n=i-o;
   $i('dki').textContent=F(i);$i('dke').textContent=F(o);$i('dkli').textContent=$i('li').textContent;$i('dkle').textContent=$i('le').textContent;
   const ne=$i('dkn');ne.textContent=(n<0?'−':n>0?'+':'')+F(n);ne.className=n<0?'neg':n>0?'pos':'';
   const r=$i('dkr'),rs=$i('dkrs');if(i>0){const p=Math.round(n/i*100);r.textContent=p+'٪';r.className=p<0?'neg':'pos';rs.textContent=p>=20?'عالیه، ادامه بده':p>=0?'هدف خوب: ۲۰٪':'خرجت از درآمدت بیشتره'}else{r.textContent='—';r.className='';rs.textContent='هنوز درآمدی ثبت نشده'}}
 new MutationObserver(kpi).observe($i('exp'),{childList:true,characterData:true,subtree:true});
 new MutationObserver(kpi).observe($i('inc'),{childList:true,characterData:true,subtree:true});
-const apply=()=>mq.matches?on():off();apply();
+const apply=()=>{try{mq.matches?on():off()}catch(e){console.error('desktop layout',e);try{order.forEach(n=>n&&B.insertBefore(n,anchor));side&&side.remove();main&&main.remove();B.classList.remove('dk')}catch(_){}}};apply();
 mq.addEventListener?mq.addEventListener('change',apply):mq.addListener(apply);
 /* keyboard: works on any screen with a keyboard */
 document.addEventListener('keydown',e=>{
