@@ -582,9 +582,23 @@ html.light .cs-foot{--sbg:#f6f6f6}html.neon .cs-foot{--sbg:#0e0a22}
 @media (min-width:1024px) and (max-height:820px){.dk-hint{display:none}.dk-side{gap:10px}.dk-side .hero{padding:16px 18px 14px}.dk-side .hero .bal{font-size:28px;margin:0 0 10px}.dk-side .ap{padding:6px 10px}.dk-side .ap i{width:32px;height:32px}}
 @media (min-width:1280px){.dk-main #budget{grid-column:span 4}.dk-main #charts{grid-column:span 8}}
 @media (min-width:1024px) and (prefers-reduced-motion:reduce){.dk-add,.dk-tx .item,.dk-side .ap{transition:none}.dk-add:hover{transform:none}}
+
+/* Liquid glass buttons (v2.3.0) — vanilla port of LiquidButton */
+.lgb{isolation:isolate;overflow:visible;background:color-mix(in srgb,var(--y) 62%,transparent)!important;color:var(--yd);-webkit-backdrop-filter:blur(10px) saturate(1.7);backdrop-filter:blur(10px) saturate(1.7);transition:transform .3s cubic-bezier(.2,.8,.2,1),background .2s}
+.lgb::before{content:"";position:absolute;inset:0;border-radius:inherit;pointer-events:none;z-index:1;box-shadow:0 0 8px rgba(0,0,0,.03),0 2px 6px rgba(0,0,0,.08),inset 3px 3px .5px -3.5px rgba(255,255,255,.09),inset -3px -3px .5px -3.5px rgba(255,255,255,.85),inset 1px 1px 1px -.5px rgba(255,255,255,.6),inset -1px -1px 1px -.5px rgba(255,255,255,.6),inset 0 0 6px 6px rgba(255,255,255,.12),inset 0 0 2px 2px rgba(255,255,255,.06),0 0 12px rgba(0,0,0,.15)}
+html.light .lgb::before{box-shadow:0 0 6px rgba(0,0,0,.03),0 2px 6px rgba(0,0,0,.08),inset 3px 3px .5px -3px rgba(0,0,0,.9),inset -3px -3px .5px -3px rgba(0,0,0,.85),inset 1px 1px 1px -.5px rgba(0,0,0,.6),inset -1px -1px 1px -.5px rgba(0,0,0,.6),inset 0 0 6px 6px rgba(0,0,0,.12),inset 0 0 2px 2px rgba(0,0,0,.06),0 0 12px rgba(255,255,255,.15)}
+.lgb::after{content:"";position:absolute;inset:0;border-radius:inherit;pointer-events:none;z-index:1;background:linear-gradient(160deg,rgba(255,255,255,.35),rgba(255,255,255,0) 45%)}
+.lgb:not(.fab){position:relative}
+.lgb>*{position:relative;z-index:2}
+html.lg-svg .lgb{-webkit-backdrop-filter:url(#container-glass) saturate(1.5);backdrop-filter:url(#container-glass) saturate(1.5)}
+@media (hover:hover){.lgb:hover{transform:scale(1.05)}}
+.lgb:active{transform:scale(.96)}
+@media (prefers-reduced-motion:reduce){.lgb,.lgb:hover,.lgb:active{transition:none;transform:none}}
+@media (min-width:1024px){.dk-add.lgb{box-shadow:0 10px 26px color-mix(in srgb,var(--y) 22%,transparent)}.dk-add.lgb:hover{transform:scale(1.02)}}
 </style>
 </head>
 <body>
+<svg width="0" height="0" style="position:absolute" aria-hidden="true" focusable="false"><defs><filter id="container-glass" x="0%" y="0%" width="100%" height="100%" color-interpolation-filters="sRGB"><feTurbulence type="fractalNoise" baseFrequency="0.05 0.05" numOctaves="1" seed="1" result="turbulence"/><feGaussianBlur in="turbulence" stdDeviation="2" result="blurredNoise"/><feDisplacementMap in="SourceGraphic" in2="blurredNoise" scale="70" xChannelSelector="R" yChannelSelector="B" result="displaced"/><feGaussianBlur in="displaced" stdDeviation="4" result="finalBlur"/><feComposite in="finalBlur" in2="finalBlur" operator="over"/></filter></defs></svg>
 <div class="topbar"><div class="brand" dir="ltr"><svg class="lg-mk" viewBox="0 0 64 64" aria-hidden="true"><defs><linearGradient id="lgg" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="#ffe066"/><stop offset="1" stop-color="#ffc400"/></linearGradient></defs><rect width="64" height="64" rx="16" fill="url(#lgg)"/><path d="M45.4 20A18 18 0 1 0 45.4 44" fill="none" stroke="#1a1500" stroke-width="6.5" stroke-linecap="round"/><path d="M25 32.5l5 5 9.5-10" fill="none" stroke="#0abab5" stroke-width="5.2" stroke-linecap="round" stroke-linejoin="round"/></svg><span class="lg-col"><span class="lg-tx"><b>CAN</b><i>do</i></span><small class="lg-sub" dir="rtl">حساب‌وکتاب ساده</small></span></div><button class="setbtn" id="setopen" aria-label="تنظیمات"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12.22 2h-.44a2 2 0 0 0-2 2v.18a2 2 0 0 1-1 1.73l-.43.25a2 2 0 0 1-2 0l-.15-.08a2 2 0 0 0-2.73.73l-.22.38a2 2 0 0 0 .73 2.73l.15.1a2 2 0 0 1 1 1.72v.51a2 2 0 0 1-1 1.74l-.15.09a2 2 0 0 0-.73 2.73l.22.38a2 2 0 0 0 2.73.73l.15-.08a2 2 0 0 1 2 0l.43.25a2 2 0 0 1 1 1.73V20a2 2 0 0 0 2 2h.44a2 2 0 0 0 2-2v-.18a2 2 0 0 1 1-1.73l.43-.25a2 2 0 0 1 2 0l.15.08a2 2 0 0 0 2.73-.73l.22-.39a2 2 0 0 0-.73-2.73l-.15-.08a2 2 0 0 1-1-1.74v-.5a2 2 0 0 1 1-1.74l.15-.09a2 2 0 0 0 .73-2.73l-.22-.38a2 2 0 0 0-2.73-.73l-.15.08a2 2 0 0 1-2 0l-.43-.25a2 2 0 0 1-1-1.73V4a2 2 0 0 0-2-2z"/><circle cx="12" cy="12" r="3"/></svg></button><button id="theme" hidden aria-hidden="true" tabindex="-1"></button><button id="eye" hidden aria-hidden="true" tabindex="-1"></button></div>
 <section id="instrem"></section>
 <section id="bkrem"></section>
@@ -611,7 +625,7 @@ html.light .cs-foot{--sbg:#f6f6f6}html.neon .cs-foot{--sbg:#0e0a22}
   <button data-f="tr">انتقال</button>
 </div>
 <main id="list"></main>
-<button class="fab" id="open" aria-label="ثبت تراکنش"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 5v14M5 12h14"/></svg></button>
+<button class="fab lgb" id="open" aria-label="ثبت تراکنش"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 5v14M5 12h14"/></svg></button>
 
 <div class="sheet-bg" id="bg">
   <div class="sheet" id="txs" data-t="out" role="dialog" aria-label="ثبت تراکنش">
@@ -688,7 +702,7 @@ html.light .cs-foot{--sbg:#f6f6f6}html.neon .cs-foot{--sbg:#0e0a22}
   <div class="set-grp">
     <button class="sr sr-dng" id="wipeopen"><span class="sr-ic" style="--c:#ff5c7a"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M3 6h18"/><path d="M19 6v14a2 2 0 0 1-2 2H7a2 2 0 0 1-2-2V6"/><path d="M8 6V4a2 2 0 0 1 2-2h4a2 2 0 0 1 2 2v2"/><path d="M10 11v6M14 11v6"/></svg></span><span class="sr-tx"><b>پاک کردن اطلاعات</b><small>تراکنش‌ها، حساب‌ها، دسته‌ها و بودجه‌ها</small></span><span class="sr-chev"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="m15 18-6-6 6-6"/></svg></span></button>
   </div>
-  <div class="appver"><span class="lg-tx sm" dir="ltr"><b>CAN</b><i>do</i></span> · نسخه‌ی <span dir="ltr">2.2.0</span></div>
+  <div class="appver"><span class="lg-tx sm" dir="ltr"><b>CAN</b><i>do</i></span> · نسخه‌ی <span dir="ltr">2.3.0</span></div>
 </div></div>
 <div class="sheet-bg" id="abg"><div class="sheet" style="max-height:88vh;overflow-y:auto"><div class="ch" id="at" style="color:var(--y);font-size:16px"></div><section id="insts"></section><section id="debts"></section><section id="cmp"></section><section id="goals"></section><section id="yr"></section><section id="cal"></section><button class="save sec" id="aclose" style="margin-top:6px">بستن</button></div></div>
 <div class="sheet-bg" id="gbg"><div class="sheet" style="max-height:88vh;overflow-y:auto"><div class="ch" id="gt"></div><div id="gb"></div><button class="save" id="gsave" style="margin-top:8px">ذخیره</button></div></div>
@@ -1434,7 +1448,7 @@ const PLUS='<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-wi
 function el(t,c,h){const e=document.createElement(t);if(c)e.className=c;if(h)e.innerHTML=h;return e}
 function build(){
   side=el('aside','dk-side');main=el('div','dk-main');bar=el('div','dk-bar');tx=el('section','dk-tx');txh=el('div','dk-tx-h','<h2>تراکنش‌ها</h2>');
-  add=el('button','dk-add',PLUS+'<span>ثبت تراکنش</span><kbd dir="ltr">N</kbd>');add.type='button';add.onclick=()=>anchor.click();
+  add=el('button','dk-add lgb',PLUS+'<span>ثبت تراکنش</span><kbd dir="ltr">N</kbd>');add.type='button';add.onclick=()=>anchor.click();
   lbl=el('div','dk-lbl','ابزارها');
   const GEAR='<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12.22 2h-.44a2 2 0 0 0-2 2v.18a2 2 0 0 1-1 1.73l-.43.25a2 2 0 0 1-2 0l-.15-.08a2 2 0 0 0-2.73.73l-.22.38a2 2 0 0 0 .73 2.73l.15.1a2 2 0 0 1 1 1.72v.51a2 2 0 0 1-1 1.74l-.15.09a2 2 0 0 0-.73 2.73l.22.38a2 2 0 0 0 2.73.73l.15-.08a2 2 0 0 1 2 0l.43.25a2 2 0 0 1 1 1.73V20a2 2 0 0 0 2 2h.44a2 2 0 0 0 2-2v-.18a2 2 0 0 1 1-1.73l.43-.25a2 2 0 0 1 2 0l.15.08a2 2 0 0 0 2.73-.73l.22-.39a2 2 0 0 0-.73-2.73l-.15-.08a2 2 0 0 1-1-1.74v-.5a2 2 0 0 1 1-1.74l.15-.09a2 2 0 0 0 .73-2.73l-.22-.38a2 2 0 0 0-2.73-.73l-.15.08a2 2 0 0 1-2 0l-.43-.25a2 2 0 0 1-1-1.73V4a2 2 0 0 0-2-2z"/><circle cx="12" cy="12" r="3"/></svg>';
   sset=el('div','apps dk-set','<button class="ap" type="button"><i style="--c:#9aa0ad">'+GEAR+'</i><span>تنظیمات</span><small>دسته، حساب، تم، بکاپ</small></button>');
@@ -1485,6 +1499,7 @@ document.addEventListener('keydown',e=>{
 });
 })();
 </script>
+<script>try{if(/Chrome\/|Edg\//.test(navigator.userAgent)&&!/CriOS|FxiOS|EdgiOS/.test(navigator.userAgent))document.documentElement.classList.add("lg-svg")}catch(e){}</script>
 <script src="sync.js"></script>
 <div id="rpt"></div>
 </body>
