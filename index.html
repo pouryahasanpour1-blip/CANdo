@@ -507,7 +507,8 @@ html.light .cs-foot{--sbg:#f6f6f6}html.neon .cs-foot{--sbg:#0e0a22}
   .dk-side #instrem:empty,.dk-side #bkrem:empty,.dk-side #accbal:empty{display:none}
   .dk-side .hero{margin:0;padding:20px 20px 16px;border-radius:24px}
   .dk-side .hero .bal{font-size:32px;margin:2px 0 12px}
-  .dk-side .split b{font-size:15px}
+  .dk-side .split{display:none}
+  .dk-side .hero .bal{margin-bottom:2px}
   .dk-side #accbal .card{margin:0}
   .dk-add{display:flex;align-items:center;justify-content:center;gap:8px;width:100%;min-height:48px;border:0;border-radius:16px;background:var(--y);color:var(--yd);font:inherit;font-weight:800;font-size:15px;cursor:pointer;box-shadow:0 8px 22px color-mix(in srgb,var(--y) 28%,transparent);transition:transform .15s,box-shadow .2s}
   .dk-add:hover{transform:translateY(-1px);box-shadow:0 12px 28px color-mix(in srgb,var(--y) 36%,transparent)}
@@ -540,7 +541,19 @@ html.light .cs-foot{--sbg:#f6f6f6}html.neon .cs-foot{--sbg:#0e0a22}
   .dk-main #budget{grid-column:span 5}
   .dk-main #charts:empty,.dk-main #budget:empty,.dk-main #ins:empty{display:none}
   .dk-main:has(#charts:empty) #budget,.dk-main:has(#budget:empty) #charts{grid-column:1/-1}
-  .dk-main #charts .card,.dk-main #budget .card{height:100%;margin:0}
+  .dk-main #charts,.dk-main #budget{display:flex;flex-direction:column;min-width:0}
+  .dk-main #charts .card,.dk-main #budget .card{flex:1 1 auto;margin:0;min-width:0}
+  .dk-main #charts svg{max-width:100%}
+  .dk-kpis{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:12px}
+  .dk-kpi{background:var(--card);border-radius:20px;padding:14px 16px;display:flex;flex-direction:column;gap:6px;border:1px solid color-mix(in srgb,var(--txt) 6%,transparent)}
+  .dk-kpi small{font-size:12px;color:var(--mute);font-weight:600;display:flex;align-items:center;gap:8px}
+  .dk-kpi small i{width:26px;height:26px;border-radius:9px;display:grid;place-items:center;background:color-mix(in srgb,var(--c) 16%,transparent);color:var(--c);font-style:normal}
+  .dk-kpi small i svg{width:15px;height:15px}
+  .dk-kpi b{font-size:21px;font-weight:800;font-variant-numeric:tabular-nums;letter-spacing:-.2px}
+  .dk-kpi b span{font-size:12px;font-weight:600;color:var(--mute);margin-inline-start:4px}
+  .dk-kpi .pos{color:var(--t)}.dk-kpi .neg{color:var(--r)}
+  .dk-kpi em{font-style:normal;font-size:11.5px;color:var(--mute)}
+  body.priv .dk-kpi b{filter:blur(8px)}
   .dk-main #ins .card{margin:0}
   .dk-tx{background:var(--card);border-radius:24px;padding:18px 18px 10px}
   .dk-tx-h{display:flex;align-items:center;justify-content:space-between;gap:12px;flex-wrap:wrap;margin-bottom:6px}
@@ -566,6 +579,7 @@ html.light .cs-foot{--sbg:#f6f6f6}html.neon .cs-foot{--sbg:#0e0a22}
   .card,.hero,.item{transition:background .15s}
 }
 @media (min-width:1024px) and (hover:none){.dk-tx .item .del{opacity:1}}
+@media (min-width:1024px) and (max-height:820px){.dk-hint{display:none}.dk-side{gap:10px}.dk-side .hero{padding:16px 18px 14px}.dk-side .hero .bal{font-size:28px;margin:0 0 10px}.dk-side .ap{padding:6px 10px}.dk-side .ap i{width:32px;height:32px}}
 @media (min-width:1280px){.dk-main #budget{grid-column:span 4}.dk-main #charts{grid-column:span 8}}
 @media (min-width:1024px) and (prefers-reduced-motion:reduce){.dk-add,.dk-tx .item,.dk-side .ap{transition:none}.dk-add:hover{transform:none}}
 </style>
@@ -674,7 +688,7 @@ html.light .cs-foot{--sbg:#f6f6f6}html.neon .cs-foot{--sbg:#0e0a22}
   <div class="set-grp">
     <button class="sr sr-dng" id="wipeopen"><span class="sr-ic" style="--c:#ff5c7a"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M3 6h18"/><path d="M19 6v14a2 2 0 0 1-2 2H7a2 2 0 0 1-2-2V6"/><path d="M8 6V4a2 2 0 0 1 2-2h4a2 2 0 0 1 2 2v2"/><path d="M10 11v6M14 11v6"/></svg></span><span class="sr-tx"><b>پاک کردن اطلاعات</b><small>تراکنش‌ها، حساب‌ها، دسته‌ها و بودجه‌ها</small></span><span class="sr-chev"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="m15 18-6-6 6-6"/></svg></span></button>
   </div>
-  <div class="appver"><span class="lg-tx sm" dir="ltr"><b>CAN</b><i>do</i></span> · نسخه‌ی <span dir="ltr">2.1.1</span></div>
+  <div class="appver"><span class="lg-tx sm" dir="ltr"><b>CAN</b><i>do</i></span> · نسخه‌ی <span dir="ltr">2.2.0</span></div>
 </div></div>
 <div class="sheet-bg" id="abg"><div class="sheet" style="max-height:88vh;overflow-y:auto"><div class="ch" id="at" style="color:var(--y);font-size:16px"></div><section id="insts"></section><section id="debts"></section><section id="cmp"></section><section id="goals"></section><section id="yr"></section><section id="cal"></section><button class="save sec" id="aclose" style="margin-top:6px">بستن</button></div></div>
 <div class="sheet-bg" id="gbg"><div class="sheet" style="max-height:88vh;overflow-y:auto"><div class="ch" id="gt"></div><div id="gb"></div><button class="save" id="gsave" style="margin-top:8px">ذخیره</button></div></div>
@@ -1415,7 +1429,7 @@ visApply();render();
 (function(){
 const mq=matchMedia('(min-width:1024px)'),B=document.body,$i=id=>document.getElementById(id);
 const order=['.topbar','#instrem','#bkrem','.hero','#accbal','.mnav','#charts','#budget','#ins','#apps','#q','#acs','#tabs','#list'].map(s=>document.querySelector(s));
-const anchor=$i('open');let built=false,side,main,bar,tx,txh,lbl,add,hint,sset,bset;
+const anchor=$i('open');let built=false,side,main,bar,tx,txh,lbl,add,hint,sset,bset,kp;
 const PLUS='<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round" aria-hidden="true"><path d="M12 5v14M5 12h14"/></svg>';
 function el(t,c,h){const e=document.createElement(t);if(c)e.className=c;if(h)e.innerHTML=h;return e}
 function build(){
@@ -1428,19 +1442,33 @@ function build(){
   bset=el('button','dk-gear',GEAR);bset.type='button';bset.setAttribute('aria-label','تنظیمات');bset.title='تنظیمات';bset.onclick=()=>$i('setopen').click();
   hint=el('div','dk-hint','<span class="dk-k" dir="ltr">N</span> ثبت · <span class="dk-k" dir="ltr">/</span> جستجو · <span class="dk-k" dir="ltr">← →</span> ماه · <span class="dk-k" dir="ltr">Esc</span> بستن');
   side.setAttribute('aria-label','نوار کناری');
+  const IC=(d)=>'<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">'+d+'</svg>';
+  kp=el('div','dk-kpis',
+   '<div class="dk-kpi"><small><i style="--c:var(--t)">'+IC('<path d="M12 19V5M5 12l7-7 7 7"/>')+'</i><span id="dkli">درآمد</span></small><b><bdi id="dki">0</bdi><span>تومان</span></b></div>'+
+   '<div class="dk-kpi"><small><i style="--c:var(--r)">'+IC('<path d="M12 5v14M19 12l-7 7-7-7"/>')+'</i><span id="dkle">هزینه</span></small><b><bdi id="dke">0</bdi><span>تومان</span></b></div>'+
+   '<div class="dk-kpi"><small><i style="--c:var(--y)">'+IC('<path d="M3 3v18h18"/><path d="m7 15 4-4 3 3 5-6"/>')+'</i>خالص این ماه</small><b><bdi id="dkn">0</bdi><span>تومان</span></b></div>'+
+   '<div class="dk-kpi"><small><i style="--c:#8b7bff">'+IC('<circle cx="12" cy="12" r="9"/><path d="M12 7v5l3 2"/>')+'</i>نرخ پس‌انداز</small><b><bdi id="dkr">—</bdi></b><em id="dkrs"></em></div>');
 }
 function on(){
   if(B.classList.contains('dk'))return;if(!built){build();built=true}
   const [top,ins1,bk,hero,acc,mnav,ch,bud,ins,apps,q,acs,tabs,list]=order;
   side.append(top,ins1,bk,hero,acc,add,lbl,apps,sset,hint);
   bar.append(mnav,q,bset);txh.append(tabs);tx.append(txh,acs,list);
-  main.append(bar,ch,bud,ins,tx);
+  main.append(bar,kp,ch,bud,ins,tx);kpi();
   B.insertBefore(side,anchor);B.insertBefore(main,anchor);B.classList.add('dk');
 }
 function off(){
   if(!B.classList.contains('dk'))return;
   order.forEach(n=>B.insertBefore(n,anchor));side.remove();main.remove();B.classList.remove('dk');
 }
+const num=t=>+String(t||'').replace(/[۰-۹]/g,d=>'۰۱۲۳۴۵۶۷۸۹'.indexOf(d)).replace(/[٠-٩]/g,d=>'٠١٢٣٤٥٦٧٨٩'.indexOf(d)).replace(/[^0-9]/g,'')||0;
+const F=n=>Math.abs(n).toLocaleString('en-US');
+function kpi(){if(!kp)return;const i=num($i('inc').textContent),o=num($i('exp').textContent),n=i-o;
+  $i('dki').textContent=F(i);$i('dke').textContent=F(o);$i('dkli').textContent=$i('li').textContent;$i('dkle').textContent=$i('le').textContent;
+  const ne=$i('dkn');ne.textContent=(n<0?'−':n>0?'+':'')+F(n);ne.className=n<0?'neg':n>0?'pos':'';
+  const r=$i('dkr'),rs=$i('dkrs');if(i>0){const p=Math.round(n/i*100);r.textContent=p+'٪';r.className=p<0?'neg':'pos';rs.textContent=p>=20?'عالیه، ادامه بده':p>=0?'هدف خوب: ۲۰٪':'خرجت از درآمدت بیشتره'}else{r.textContent='—';r.className='';rs.textContent='هنوز درآمدی ثبت نشده'}}
+new MutationObserver(kpi).observe($i('exp'),{childList:true,characterData:true,subtree:true});
+new MutationObserver(kpi).observe($i('inc'),{childList:true,characterData:true,subtree:true});
 const apply=()=>mq.matches?on():off();apply();
 mq.addEventListener?mq.addEventListener('change',apply):mq.addListener(apply);
 /* keyboard: works on any screen with a keyboard */
